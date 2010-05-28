@@ -1,0 +1,41 @@
+/* 
+    Document   : fckEditorContent
+    Created on : Feb 4, 2010, 1:43:24 AM
+    Author     : jonycus
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div.lawDisplay {
+    text-align: justify;
+    margin: 20px;
+}
+
+.broj, .clan p  {
+    text-align: center;
+    text-indent: 0px;
+}
+
+.broj, .clan  {
+    text-align: center;
+
+}
+
+div.lawDisplay p {
+    text-indent: 30px;
+}
+
+.potpis {
+    text-align: right;
+}
+
+.odluka-zakon, .naslov {
+    font-weight: bold;
+    text-align: center;
+}
+

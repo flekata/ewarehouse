@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+    Document   : genrep_tabbed_container
+    Created on : 9.9.2008, 13:28:
+    Author     : vasko
+-->
+<div
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:ice="http://www.icesoft.com/icefaces/component"
+          xmlns:ui="http://java.sun.com/jsf/facelets" >
+
+    <!-- <ice:panelTabSet id="genreppnltabset" styleClass="slGlasnikTabSetContainer"
+                     tabChangeListener="#{applicationController.processTabChange}"
+                     selectedIndex="#{applicationModel.selectedTabIndex}">-->
+
+
+        <div class="help_link">
+            <ice:outputLink
+                value="#{request.contextPath}#{applicationModel.currentNode.contentDescriptor.help.tutorials.resourceReference[0].resourceRef.path}"
+                target="new">Help</ice:outputLink>
+        </div>
+        <ui:insert name="content">
+
+        </ui:insert>
+
+
+        <!--
+        The bean is responsible for streaming html documentation to
+        this placeholder
+        -->
+
+     <!--ice:panelTab rendered="#{!empty applicationModel.currentNode.contentDescriptor.import.renderOnUserRole}" label="#{genrepmsgs['Import1']}">
+         <ui:insert name="import">
+
+         </ui:insert>
+        </ice:panelTab>
+   <<ice:panelTab label="#{genrepmsgs['Info']}">
+            <ui:insert name="info">
+                <ui:include src="/WEB-INF/includes/content/info.jspx" />
+            </ui:insert>>
+        </ice:panelTab> 
+    </ice:panelTabSet>-->
+
+</div>

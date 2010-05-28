@@ -1,0 +1,26 @@
+<genrep:formWraper id="byLawDisplayForm"
+                   xmlns:h="http://java.sun.com/jsf/html"
+                   xmlns:f="http://java.sun.com/jsf/core"
+                   xmlns:genrep="http://www.genrepsoft.com/jsf"
+                   xmlns:ice="http://www.icesoft.com/icefaces/component"
+                   xmlns:c="http://java.sun.com/jstl/core"
+                   xmlns:ui="http://java.sun.com/jsf/facelets"
+                   bean="com.warehouse.beans.Content"
+                   catalogBean="#{codexCatalog}"
+                   enableState="#{false}">
+
+  <ice:menuBar id="menuBar"
+                 orientation="Horizontal">
+        <ice:menuItem id="open"
+                      value="Open">
+            <ice:menuItem id="open1" title="dsad" actionListener="#{form.containerBean.primaryListener}"
+                          value="Open1">
+        <f:param name="myParam"
+                 value="header.jspx"/>
+            </ice:menuItem>
+        </ice:menuItem>
+    </ice:menuBar>
+
+    <ui:include src="/WEB-INF/includes/genrep-templating/inc/#{form.containerBean.currentDisplay}" />
+</genrep:formWraper>
+

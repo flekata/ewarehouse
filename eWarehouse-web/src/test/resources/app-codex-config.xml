@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.5.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+
+
+    <import resource="classpath*:app-system-config.xml" />
+
+    <!-- App & Session Impl -->
+    <bean id="codexSessionImpl" class="com.genrep.hibernate.session.manager.HibernateSessionManagerImpl">
+        <constructor-arg index="0" value="hibernate.cfg.xml" type="java.lang.String" />
+    </bean>
+    <bean id="codexSessionManagerBean" class="com.genrep.app.session.manager.DefaultSessionManager">
+        <property name="impl" ref="codexSessionImpl"/>
+    </bean>
+    <bean id="codex-web-application"  class="com.genrep.application.AppFactory" factory-method="createApplication" >
+        <constructor-arg index="0" value="com.genrep.app.DefaultApplication" type="java.lang.String" />
+        <constructor-arg index="1" value="com.genrep.app.DefaultApplicationImpl" type="java.lang.String" />
+        <property name="sessionManager" ref="codexSessionManagerBean"/>
+    </bean>
+</beans>

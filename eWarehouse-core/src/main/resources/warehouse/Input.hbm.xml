@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.warehouse.core.Input" table="warehouse.INPU">
+    <id name="UID">
+      <generator class="uuid"/>
+    </id>
+    <property column="date" name="date"/>
+    <property column="type" name="type"/>
+    <property column="price" name="price"/>
+    <property column="size" name="size"/>
+    <many-to-one class="com.warehouse.core.Item" name="item" column="ITMM" />
+    <many-to-one class="com.warehouse.core.Organization" name="organization" column="ORGG" />
+    <many-to-one class="com.warehouse.core.Warehouse" name="warehouse" column="WRHS" />
+  </class>
+</hibernate-mapping>

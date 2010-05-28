@@ -1,0 +1,10 @@
+<!--
+    Document   : footer
+    Created on : 24.12.2009, 13:03:
+    Author     : vasko
+-->
+<div class="footer_container">
+    <div>
+        #{genrepmsgs['Copyright']} 2010&#160;
+    </div>
+</div>

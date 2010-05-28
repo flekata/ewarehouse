@@ -1,0 +1,87 @@
+/* 
+Document   : genrep-layout
+Created on : 23.7.2008, 18:03:
+Author     : vasko
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/*
+
+
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+table.icePnlTbSet {
+    background: url("../images/bg_main_menu.jpg") repeat-x top left;
+}
+
+table.icePnlTbSet table.icePnlTbOn {
+    background: none;
+}
+
+table.icePnlTbSet td.LftTop,
+table.icePnlTbSet td.MidTop,
+table.icePnlTbSet td.RtTop,
+table.icePnlTbSet td.LftMid,
+table.icePnlTbSet td.RtMid {
+    background: none;
+}
+
+table.icePnlTbSet td.MidMid {
+    background: url("../images/selTabBg.jpg") repeat-x bottom left white;
+    height: 18px !important;
+}
+
+table.icePnlTbOn .MidMid td {
+    color: #30636b;
+}
+
+table.icePnlTbSet td.MidMid a {
+    background: none;
+    margin: 0;
+    padding: 1px 5px;
+    display: inherit;
+}
+
+table.icePnlTbSet table.icePnlTbOff td.MidMid,
+table.icePnlTbSet table.icePnlTbOver td.MidMid {
+    background: none;
+}
+
+table.icePnlTbSet table.icePnlTbOff td.MidMid a table {
+    color: #cfb781;
+}
+
+table.icePnlTbSet table.icePnlTbOver td.MidMid a table {
+    color: white;
+}
+
+div.new td.icePnlTbSetCnt {
+    border: 3px solid green;
+    background: none #e8f1e9;
+}
+
+div.read td.icePnlTbSetCnt {
+    border: 3px solid #ccc;
+    background: none white;
+}
+
+div.search td.icePnlTbSetCnt {
+    border: 2px solid orange;
+    background: none #fcf6e8;
+}
+
+div.edit td.icePnlTbSetCnt {
+    border: 3px solid #024ea2;
+    background: none #eaecee;
+}
+
+div.info td.icePnlTbSetCnt {
+    border: 3px solid purple;
+}
+
+div.message td.icePnlTbSetCnt {
+    border: 3px solid red;
+}

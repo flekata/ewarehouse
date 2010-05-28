@@ -1,0 +1,159 @@
+/* 
+Document   : genrep-layout
+Created on : 23.7.2008, 18:03:
+Author     : vasko
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/*
+
+
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div.frontTree {
+    padding: 20px;
+}
+
+div.frontTreeRow {
+    text-align: left;
+    min-height: 25px;
+}
+
+div.frontTreeRow img {
+    margin-bottom: 10px;
+}
+
+div.frontTree1 {
+    min-height: 25px;
+    background: url(../images/colapPanelBg.jpg) repeat-x bottom left;
+    border: 1px solid #e4e9ef;
+    margin-left: -4px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    width: 94%;
+}
+
+div.frontTree1 a {
+    width: 900px;
+    padding-left: 10px;
+    margin-top: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+div.frontTree2 {
+    padding-left: 60px;
+    margin: 0;
+}
+
+div.frontTree2 img {
+    margin: 0;
+}
+
+div.frontTree2 a {
+    font-weight: normal;
+}
+
+div.fronTree.icePnlGrp {
+    background: none;
+    border: none;
+    margin-top: 10px;
+}
+
+div.frontTreeRow div.icePnlGrp a {
+    color: #024ea2;
+    font-family: Arial, sans-serif;
+}
+
+div.sideTreeView {
+    text-align: left;
+    float: left;
+}
+
+div.insideTree1 {
+    background: #024ea2;
+    width: 190px;
+    border-bottom: 1px solid #bbb;
+}
+
+div.insideTree1 a {
+    width: 177px;
+    white-space: normal;
+    display: block;
+    padding: 5px;
+    color: white;
+}
+
+div.insideTree2 {
+    margin-left: -4px;
+    width: 190px;
+    background: #273741;
+    border-bottom: 1px solid #46545d;
+}
+
+div.insideTree2 a {
+    width: 177px;
+    white-space: normal;
+    display: block;
+    padding: 5px;
+    color: white;
+}
+
+div.sideTextView {
+    padding-left: 200px;
+}
+
+div.schemeTitle {
+    margin-bottom: 10px;
+}
+
+div.schemeTitle span {
+    font-family: Arial, sans-serif;
+    color: #024ea2;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+div.classifTitle {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+div.classifTitle span {
+    font-family: Arial, sans-serif;
+    color: #666;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+div.parentNode {
+    text-align: left;
+    padding: 5px 0;
+    background: #f4f6f9;
+}
+
+div.parentNode span {
+    margin-right: 20px;
+}
+
+
+div.parentNode a {
+    font-weight: bold;
+    padding: 5px;
+    color: #4a4a4a;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+div.childNode {
+    padding: 10px 0 10px 30px;
+    background: #fff;
+}
+
+div.childNode a {
+    font-weight: normal;
+}

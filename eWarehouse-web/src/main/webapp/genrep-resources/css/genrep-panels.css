@@ -1,0 +1,39 @@
+/* 
+Document   : genrep-layout
+Created on : 23.7.2008, 18:03:
+Author     : vasko
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/*
+
+
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+div.ejuristColapsableColpsd {
+    
+}
+
+div.ejuristColapsableHdr {
+    background: url("../images/colapPanelBg.jpg") repeat-x top left;
+}
+
+div.ejuristColapsableHdr .icePnlGrp {
+    background: url("../images/colapPanelDown.jpg") no-repeat top left;
+}
+
+div.ejuristColapsableColpsdHdr div  {
+    background: url("../images/colapPanelUp.jpg") no-repeat top left;
+}
+
+a.ejuristMainLink {
+    padding-left: 30px !important;
+    color: #30636b;
+}
+
+a.navNodeLink {
+    color: #30636b;
+}

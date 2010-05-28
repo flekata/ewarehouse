@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect
+        </property>
+        <property name="show_sql">true
+        </property>
+        <property name="use_outer_join">false
+        </property>
+        <property name="jta.UserTransaction">java:comp/UserTransaction
+        </property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver
+        </property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/warehouse
+        </property>
+        <property name="hibernate.connection.username">root
+        </property>
+        <property name="hibernate.connection.password">admin
+        </property>
+        <property name="hibernate.connection.pool_size">12
+        </property>
+
+      <!--    <property name="hbm2ddl.auto">update</property> -->
+        
+        <mapping resource="warehouse/Individual.hbm.xml" />
+        <mapping resource="warehouse/Input.hbm.xml" />
+        <mapping resource="warehouse/Item.hbm.xml" />
+        <mapping resource="warehouse/Organization.hbm.xml" />
+        <mapping resource="warehouse/Output.hbm.xml" />
+        <mapping resource="warehouse/Warehouse.hbm.xml" />
+        <!-- DB2 local -->
+    <!--    <property name="dialect">org.hibernate.dialect.DB2Dialect
+        </property>
+        <property name="show_sql">true
+        </property>
+        <property name="use_outer_join">false
+        </property>
+        <property name="jta.UserTransaction">java:comp/UserTransaction
+        </property>
+        <property name="hibernate.connection.driver_class">com.ibm.db2.jcc.DB2Driver
+        </property>
+        <property name="hibernate.connection.url">${hibernate.connection.url}</property>
+        <property name="hibernate.connection.username">${hibernate.connection.username}</property>
+        <property name="hibernate.connection.password">${hibernate.connection.password}</property> -->
+
+
+
+
+        <!--<property name="hbm2ddl.auto">update</property>-->
+
+<!--        <mapping resource="realEstate-codex/Questionnaire.hbm.xml" />
+        <mapping resource="realEstate-codex/BuildIntervention.hbm.xml" />
+        <mapping resource="realEstate-codex/Relationship.hbm.xml" />
+
+        <mapping resource="realEstate-codex/QuestionnaireParts.hbm.xml" />
+        <mapping resource="realEstate-codex/Classifications.hbm.xml" />-->
+        <!-- admin (schema: CASAdmin, project: app-authentication) -->
+      <!--  <mapping resource="Group.hbm.xml" />
+        <mapping resource="Role.hbm.xml" />
+        <mapping resource="UserProfile.hbm.xml" />
+        <mapping resource="User.hbm.xml" /> -->
+
+        <!-- classification (schema: cls, project: app-codex)
+        <mapping resource="perprot/Classifications.hbm.xml" />-->
+    </session-factory>
+</hibernate-configuration>

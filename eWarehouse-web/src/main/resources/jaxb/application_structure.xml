@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : application_structure.xml
+    Created on : 9, јануари 2009, 12:37
+    Author     : USER
+    Description:
+        Purpose of the document follows.
+-->
+
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="application.xsd"
+             name="realEstate Application">
+    <navigation label="realEstates">
+        <navigation-default>
+            <navigation-default-node nodeRef="realEstateGenrep" userRole="ROLE_ADMIN"/>
+        </navigation-default>
+        <node id="realEstateGenrep"
+              label="GeneralQuestionnaire" leaf="false" link="true"
+              expanded="false"
+              contentRef="genrepContentPageDesc">
+                  <node id="splash"
+                        expanded="false" link="true" leaf="true"
+                        contentRef="splashDesc" label="splash"/>
+        </node>
+       
+       
+    </navigation>
+    <content>
+        <content-descriptor id="genrepContentPageDesc"
+                            title="Genrep Content Page" templateRef="plainContainer">
+            <app-content>
+                <resource-reference resourceRef="contentPage" />
+            </app-content>
+            <help templateRef="documentationContainer"/>
+        </content-descriptor>
+         <content-descriptor id="splashDesc"
+                            title="splash" templateRef="genrepTabbedContainer">
+            <app-content>
+                <resource-reference resourceRef="splashResc" />
+            </app-content>
+            <help templateRef="documentationContainer"/>
+        </content-descriptor>
+
+        <content-resources>
+            <resource id="genrepTabbedContainer" pathType="include"
+                      path="/WEB-INF/includes/genrep-templating/genrep_tabbed_container.jspx"/>
+            <resource id="contentPage"
+                      path="/WEB-INF/includes/warehouse/Main.jspx"/>
+            <resource id="documentationContainer" pathType="include"
+                      path="/WEB-INF/includes/templates/docView_container.jspx"/>
+            <resource id="plainContainer" pathType="include"
+                      path="/WEB-INF/includes/templates/plain_container.jspx"/>
+            <resource id="splashResc" pathType="include"
+                      path="/WEB-INF/includes/warehouse/Main.jspx"/>
+
+        </content-resources>
+    </content>
+</application>

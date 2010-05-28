@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+    <sec:http lowercase-comparisons="false" auto-config="true">
+
+        <sec:intercept-url pattern="/403.html" filters="none"/>
+        <sec:intercept-url pattern="/403.jpg" filters="none"/>
+        <sec:intercept-url pattern="/logout.html" filters="none"/>
+        <sec:intercept-url pattern="/js/config.js" filters="none"/>
+        <sec:intercept-url pattern="/login.html" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_bg.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_header.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_ok.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_ok_hover.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_key.gif" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/css/login.css" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/pristupi.jpg" filters="none"/>
+        <sec:intercept-url pattern="/**"
+                           access="ROLE_USER"/>
+        <!--sec:logout logout-url="/cas-logout.jsp" logout-success-url="https://debiantomcat:9443/cas/login" invalidate-session="true"/-->
+        <sec:logout invalidate-session="true" logout-success-url="/logout.html"/>
+        <!--sec:port-mappings>
+            <sec:port-mapping http="5580" https="5543"/>
+            <sec:port-mapping http="80" https="443"/>
+        </sec:port-mappings-->
+        <sec:form-login login-page="/login.html" authentication-failure-url="/login.html?login_error=1"/>
+    </sec:http>
+
+    <bean id="loggerListener"
+          class="org.springframework.security.event.authentication.LoggerListener" />
+
+    <!-- Daisy Security test configuration-->
+<!--
+<bean id="userService" class="com.genrep.ejurist.documents.test.AuthenticationDaoImpl"/>
+-->
+<!--
+    <sec:user-service id="userService">
+        <sec:user name="admin" password="admin" authorities="ROLE_SUPERVISOR,ROLE_USER" />
+        <sec:user name="dianne" password="dianne" authorities="ROLE_USER" />
+        <sec:user name="scott" password="scott" authorities="ROLE_USER" />
+    </sec:user-service>
+
+    -->
+    <bean id="userService" class="com.genrep.ejurist.documents.test.AuthenticationDaoImpl"/>
+
+
+    <sec:authentication-provider user-service-ref='userService'/>
+
+</beans>

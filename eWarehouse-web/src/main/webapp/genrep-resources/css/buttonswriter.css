@@ -1,0 +1,38 @@
+/* 
+    Document   : buttonswriter
+    Created on : Feb 1, 2010, 4:35:13 PM
+    Author     : jonycus
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+table.genrep_buttonsWriter {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: url(../images/selTabBg.jpg) repeat-x bottom left white;
+}
+
+div.genrep_buttonsWriter span {
+    display: table-cell; 
+    vertical-align: middle;
+}
+
+div.genrep_buttonsWriter span input {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+div.genrep_buttonsWriter span a {
+    vertical-align: middle;
+    color: #30636b;
+}
+
+hr.aboveButtons {
+    color: white;
+    margin-top: 40px;
+}

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  - Application context definition for "example" DispatcherServlet.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:genrepns="http://www.genrepsoft.com/schema/genrep"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://www.genrepsoft.com/schema/genrep http://www.genrepsoft.com/schema/genrep/genrepns.xsd">
+
+    <!-- chart
+    <bean name="chart" class="com.genrep.chart.ChartBean" />
+    <bean name="chartMed" class="com.genrep.chart.ChartMediator" />
+-->
+
+
+    <import resource="classpath*:app-model-jsf-config.xml" />
+    <import resource="classpath*:app-init-config.xml" />
+    <import resource="acegi-no-cas-no-db.xml" />
+
+    
+  
+    <bean id="faceletViewHandler" class="com.genrepsoft.facelets.FaceletViewHandlerWrapper"
+          factory-method="getInstance">
+        <property name="refreshPeriodValue" value="${facelet.refreshPeriod}" />
+    </bean>
+
+    <bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="5" />
+        <property name="maxPoolSize" value="10" />
+        <property name="queueCapacity" value="50" />
+    </bean>
+
+   
+
+   
+
+    <bean id="realEstateSessionImpl" class="com.genrep.hibernate.session.manager.HibernateSessionManagerImpl" scope="session">
+        <constructor-arg index="0" value="hibernate.cfg.xml" type="java.lang.String" />
+    </bean>
+    <bean id="realEstateCodexSessionManagerBean" class="com.genrep.session.manager.impl.DefaultSessionManager" scope="session">
+        <property name="impl" ref="realEstateSessionImpl"/>
+    </bean>
+    <bean id="eDebtDocumentManager" class="com.genrep.document.manager.DocumentManager"/>
+
+
+    <!-- Ova e verojatno poradi toa sto prethodno spring context-ot ne se postavuvase vo jsfAppImpl -->
+    <!-- Stojan: go imam premesteno context-ot vo Application taka da nema potreba od ova -->
+    <!--<bean id="eJuristAppImpl" class="com.genrep.app.JSFAppImpl"/>-->
+
+    <bean id="realEstate-web-application" class="com.genrep.container.service.application.AppFactory"
+          factory-method="createApplication">
+        <constructor-arg index="0" value="com.genrep.realEstate.app.RealEstateWebApp" type="java.lang.String" />
+        <constructor-arg index="1" value="com.genrep.app.JSFAppImpl" type="java.lang.String" />
+        <property name="sessionManagerName" value="realEstateCodexSessionManagerBean"/>
+        <property name="documentManager" ref="eDebtDocumentManager"/>
+        <property name="schemaPrefix" value="realEstate_"/>
+    </bean>
+
+  
+    <!-- Utility bean for locating configuration of import archive procedure -->
+   
+
+    <bean name="ctxtUtil"
+          class="org.icefaces.application.showcase.util.ContextUtilBean" />
+    <!-- Managed Bean for dynamic style examples -->
+    <bean name="styleBean" scope="session"
+          class="org.icefaces.application.showcase.util.StyleBean">
+    </bean>
+    <!-- END Component Showcase faces-config-application-beans.xml -->
+    <bean name="locales" scope="session"
+          class="com.genrep.application.locale.LocaleBean">
+    </bean>
+   
+   <!-- <bean name="webServiceReader" class="com.genrep.codexRealEstate.service.reader.WebServiceReader">
+        <property name="codexService" ref="codexService"/>
+        <property name="byLawTypeId" value="${byLawTypeId}"/>
+        property name="chartBean" ref="chart"/
+    </bean>-->
+   <!-- <bean name="serviceReader" scope="session" class="com.genrep.coreRealEstate.service.reader.ServiceReader">
+        <property name="codexService" ref="codexService"/>
+        <property name="rootSchemeId" value="${rootSchemeId}"/>
+    </bean>-->
+
+
+    <genrepns:catalog id="codexCatalog" main="true">
+        <genrepns:methods class="com.genrep.coreRealEstate.service.reader.ServiceReader" method="getClassificationsByID" alias="getClassificationsByID" params="java.lang.String" />
+        <genrepns:methods class="com.warehouse.methods.WarehouseMethods" method="getWarehauses" alias="getWarehauses" params="com.genrep.guimodel.service.gui.comp.AGUIContainer" />
+    </genrepns:catalog>
+    <genrepns:catalog id="clsCatalog" main="true">
+        <genrepns:methods class="com.genrep.codexRealEstate.service.reader.ServiceReader"
+                          method="getClassifications" alias="getClassifications" params="java.lang.String" />
+        <genrepns:methods class="com.genrep.codexRealEstate.service.reader.ServiceReader" method="getClassificationsByID" alias="getClassificationsByID" params="java.lang.String" />        
+        <genrepns:methods class="com.genrep.codexRealEstate.service.reader.ServiceReader" method="get" alias="get" params="java.lang.String" />
+    </genrepns:catalog>
+    <bean id="defaultOperationSet" class="com.genrep.codex.procedure.ClassificationProcedure">
+        <constructor-arg index="0" value="com.genrep.realEstate.app.RealEstateWebApp" type="java.lang.String"/>
+        <constructor-arg index="1" value="codexEntity" type="java.lang.String" />
+    </bean>
+</beans>
+
