@@ -25,7 +25,7 @@
         <genrep:transit src="*" target="*"/>
     </genrep:action>
     <genrep:action name="SearchOutput" class="com.warehouse.action.SearchOutput"
-                   params="combo_tem12ss;combo_warehouse12ss21;inputText_size12ss;inputText_orderCode12ss;table_OutputView_Table">
+                   params="combo_tem12ss;combo_warehouse12ss21;inputText_size12ss;inputText_orderCode12ss;table_OutputView_Table;inputText_ind12ss">
         <genrep:transit src="*" target="*"/>
     </genrep:action>
     <genrep:action name="AddNewItem" class="com.warehouse.action.AddNewItem"
@@ -64,13 +64,8 @@
                           params="com.warehouse.core.Item"
                           refresh="#{true}"/>
 
-            <genrep:outputLabel id="lblname12ss" value="#{genrepmsgs['warehName']}" />
-            <genrep:combo id="warehouse12ss21"
-                          method="get"
-                          labelField="name"
-                          catalogBean="#{clsCatalog}"
-                          params="com.warehouse.core.Warehouse"
-                          refresh="#{true}"/>
+            <genrep:outputLabel id="ind12ss1" value="#{genrepmsgs['individual']}" />
+            <genrep:inputText id="ind12ss" />
 
             <genrep:outputLabel id="size12ss1" value="#{genrepmsgs['size']}" />
             <genrep:inputText id="size12ss" />
@@ -78,7 +73,13 @@
             <genrep:outputLabel id="orderCode12ss2" value="#{genrepmsgs['orderCode']}" />
             <genrep:inputText id="orderCode12ss"  />
 
-
+            <genrep:outputLabel id="lblname12ss" value="#{genrepmsgs['warehName']}" />
+            <genrep:combo id="warehouse12ss21"
+                          method="get"
+                          labelField="name"
+                          catalogBean="#{clsCatalog}"
+                          params="com.warehouse.core.Warehouse"
+                          refresh="#{true}"/>
 
             <!--     <genrep:outputLabel id="datedate12ss" value="#{genrepmsgs['date']}" />
             <genrep:date id="date12ss" field="date" /> -->
@@ -90,7 +91,7 @@
         </genrep:buttonsWriter>
         <genrep:table id="OutputView_Table"
                       tableClass="com.warehouse.core.Output"
-                      columnFields="item.name;warehouse.name;size;orderCode;date">
+                      columnFields="item.name;size;individual.name;orderCode;date;note;warehouse.name">
             <genrep:rowSelector id="SelectedIDInputView" action="RowSelector" />
             <genrep:columns/>
         </genrep:table>

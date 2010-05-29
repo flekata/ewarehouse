@@ -65,13 +65,7 @@
                           params="com.warehouse.core.Item"
                           refresh="#{true}"/>
 
-            <genrep:outputLabel id="lblname12ss" value="#{genrepmsgs['warehName']}" />
-            <genrep:combo id="warehouse12ss"
-                          method="get"
-                          labelField="name"
-                          catalogBean="#{clsCatalog}"
-                          params="com.warehouse.core.Warehouse"
-                          refresh="#{true}"/>
+
 
             <genrep:outputLabel id="size12ss" value="#{genrepmsgs['size']}" />
             <genrep:inputText id="size12ss" />
@@ -79,7 +73,13 @@
             <genrep:outputLabel id="priceprice12ss" value="#{genrepmsgs['price']}" />
             <genrep:inputText id="price12ss"  />
 
-
+            <genrep:outputLabel id="lblname12ss" value="#{genrepmsgs['warehName']}" />
+            <genrep:combo id="warehouse12ss"
+                          method="get"
+                          labelField="name"
+                          catalogBean="#{clsCatalog}"
+                          params="com.warehouse.core.Warehouse"
+                          refresh="#{true}"/>
 
             <!-- <genrep:outputLabel id="datedate12ss" value="#{genrepmsgs['date']}" />
             <genrep:date id="date12ss"  /> -->
@@ -91,7 +91,7 @@
         </genrep:buttonsWriter>
         <genrep:table id="InputView_Table"
                       tableClass="com.warehouse.core.Input"
-                      columnFields="item.name;warehouse.name;size;price;date">
+                      columnFields="item.name;size;type;organization.name;price;date;note;warehouse.name">
             <genrep:rowSelector id="SelectedIDInputView" action="RowSelector" />
             <genrep:columns/>
         </genrep:table>
@@ -126,6 +126,9 @@
             <h2><genrep:outputLabel id="lbltype132" value="#{genrepmsgs['type']}" /></h2>
             <h1><genrep:outputText id="lblcdd2fsf4" value="#{form.containerBean.type}" /></h1>
 
+            <h2><genrep:outputLabel id="lblnote132" value="#{genrepmsgs['note']}" /></h2>
+            <h1><genrep:outputText id="lblcdnoted2fsf4" value="#{form.containerBean.note}" /></h1>
+
             <h2><genrep:outputLabel id="lblprice132" value="#{genrepmsgs['price']}" /></h2>
             <h1><genrep:outputText id="lblcdd2fsf5" value="#{form.containerBean.price}" /></h1>
 
@@ -150,18 +153,18 @@
     </genrep:panelCollapsible>
 
 
-                <genrep:panelPopup id="pnlPopUpWarn" popUpOn="warn"
-                                   draggable="#{false}" modal="#{true}">
-                    <genrep:content facetName="header">
-                        Внимание
-                    </genrep:content>
-                    <genrep:content facetName="body">
-                        <genrep:panelGroup id="pnlGroupWarn">
-                            Дали сте сигурни да го избришете овој запис?
-                            <genrep:button id="warnyas" action="delete" image="/images/save.png"/>
-                            <genrep:button id="warnno" action="no" image="/images/cancel.png"/>
-                        </genrep:panelGroup>
-                    </genrep:content>
-                </genrep:panelPopup>
+    <genrep:panelPopup id="pnlPopUpWarn" popUpOn="warn"
+                       draggable="#{false}" modal="#{true}">
+        <genrep:content facetName="header">
+            Внимание
+        </genrep:content>
+        <genrep:content facetName="body">
+            <genrep:panelGroup id="pnlGroupWarn">
+                Дали сте сигурни да го избришете овој запис?
+                <genrep:button id="warnyas" action="delete" image="/images/save.png"/>
+                <genrep:button id="warnno" action="no" image="/images/cancel.png"/>
+            </genrep:panelGroup>
+        </genrep:content>
+    </genrep:panelPopup>
 </genrep:formWraper>
 

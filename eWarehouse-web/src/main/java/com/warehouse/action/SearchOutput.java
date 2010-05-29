@@ -9,6 +9,7 @@ import com.genrep.guimodel.gui.comp.combo.Combo;
 import com.genrep.guimodel.gui.comp.table.Table;
 import com.genrep.guimodel.gui.comp.text.Text;
 import com.genrep.guimodel.service.action.AAction;
+import com.warehouse.core.Individual;
 import com.warehouse.core.Item;
 import com.warehouse.core.Warehouse;
 import com.warehouse.operationset.WarehouseOperationSet;
@@ -53,8 +54,14 @@ public class SearchOutput extends AAction {
         Date datecd = null;
         Table table = (Table) getParams()[4];
 
+        Text indtx = (Text) getParams()[5];
+        Individual individual = (Individual) indtx.getValueObject();
+        String individualname = null;
+        if (individualname != null) {
+            individualname = (String) individual.getName();
+        }
         WarehouseOperationSet proc = new WarehouseOperationSet(AppFactory.getCurrentApplication().getName(), "codexSession");
-        table.setValue(proc.findOutput(itemname, warname, siz, orderCode, datecd));
+        table.setValue(proc.findOutput(itemname, warname, siz, orderCode, datecd,individualname));
         return true;
     }
 

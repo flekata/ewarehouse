@@ -99,7 +99,7 @@ public class WarehouseOperationSet extends AOperationSet {
             return null;
         }
     }
-    public List findOutput(String itemName, String whname, Integer size, String orderCode, Date date) {
+    public List findOutput(String itemName, String whname, Integer size, String orderCode, Date date,String individualname) {
         try {
             ICriteria criteria = getOpSession().createCriteria(Output.class);
             IExpression expression = criteria.createExpression();
@@ -121,7 +121,10 @@ public class WarehouseOperationSet extends AOperationSet {
             if (date != null) {
                 criteria.addExpresion(expression.eq("date", date));
             }
-
+            if (individualname != null) {
+                criteria.createAlias("individual", "individual");
+                criteria.addExpresion(expression.eq("individual.name", individualname));
+            }
             return criteria.list();
         } catch (Exception ex) {
             ex.printStackTrace();

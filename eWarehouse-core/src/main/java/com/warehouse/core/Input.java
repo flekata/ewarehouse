@@ -22,10 +22,19 @@ public class Input extends ADocument {
     private BigDecimal price;
     private Item item;
     private Integer size;
+    private String note;
     /// view fields
     List<Input> tableList;
     Integer current;
     Integer tableListSize;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public Integer getTableListSize() {
         if (tableList != null) {

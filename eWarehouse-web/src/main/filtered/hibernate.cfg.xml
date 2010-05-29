@@ -22,8 +22,8 @@
         <property name="hibernate.connection.pool_size">12
         </property>
 
-      <!--    <property name="hbm2ddl.auto">update</property> -->
-        
+          <property name="hbm2ddl.auto">update</property> 
+        <!---->
         <mapping resource="warehouse/Individual.hbm.xml" />
         <mapping resource="warehouse/Input.hbm.xml" />
         <mapping resource="warehouse/Item.hbm.xml" />
