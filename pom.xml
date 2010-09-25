@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.genrep</groupId>
         <artifactId>genrep-app-framework-master</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.3-UI-Model</version>
     </parent>
 
     <groupId>com.genrep.warehouse</groupId>
@@ -17,13 +17,11 @@
 
     <modules>
         <module>eWarehouse-core</module>
-        <!-- <module>eWarehouse-codex</module> -->
         <module>eWarehouse-web</module>
     </modules>
 
     <build>
-        <defaultGoal>deploy</defaultGoal>
-
+        <defaultGoal>install</defaultGoal>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -48,10 +46,16 @@
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
             </resource>
             <resource>
                 <directory>src/main/filtered</directory>
                 <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
             </resource>
         </resources>
 
@@ -115,9 +119,9 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.4.3</version>
+            <version>1.5.0</version>
             <scope>runtime</scope>
-            <optional>true</optional>
+
         </dependency>
 
         <!-- icefaces -->
@@ -154,6 +158,17 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.genrep.party</groupId>
+            <artifactId>module-party</artifactId>
+            <version>1.0-UI-Model</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.1.2</version>
@@ -179,24 +194,6 @@
             <groupId>javax.xml</groupId>
             <artifactId>jaxb-xjc</artifactId>
             <version>2.0EA3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>app-model-jsf</artifactId>
-            <version>1.0-UI-Model</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>app-logging</artifactId>
-            <version>1.0-UI-Model</version>
         </dependency>
 
     </dependencies>
@@ -228,12 +225,3 @@
         </repository>
     </repositories>
 </project>
-
-
-
-
-
-
-
-
-

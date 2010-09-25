@@ -72,10 +72,10 @@
    
 
     <bean name="ctxtUtil"
-          class="org.icefaces.application.showcase.util.ContextUtilBean" />
+          class="com.genrep.application.util.ContextUtilBean" />
     <!-- Managed Bean for dynamic style examples -->
     <bean name="styleBean" scope="session"
-          class="org.icefaces.application.showcase.util.StyleBean">
+          class="com.genrep.application.util.StyleBean">
     </bean>
     <!-- END Component Showcase faces-config-application-beans.xml -->
     <bean name="locales" scope="session"

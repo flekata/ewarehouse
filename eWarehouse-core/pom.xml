@@ -8,7 +8,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.genrep.warehouse.core</groupId>
+    <groupId>com.genrep.warehouse</groupId>
     <artifactId>eWarehouse-core</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
@@ -58,11 +58,11 @@
             <artifactId>toolbox-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>com.genrep.toolbox</groupId>
             <artifactId>toolbox-msword</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
 
 
         <dependency>
@@ -76,11 +76,18 @@
             <version>1.0</version>
         </dependency>
         <dependency>
+            <groupId>com.genrep.model</groupId>
             <artifactId>app-model-jsf</artifactId>
-            <groupId>com.genrep.docameleon</groupId>
-            <type>jar</type>
             <version>1.0-UI-Model</version>
             <exclusions>
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.genrep.classification</groupId>
+                    <artifactId>app-classification</artifactId>
+                </exclusion>
             </exclusions>
         </dependency>
         <dependency>
@@ -89,9 +96,19 @@
             <version>1.0-UI-Model</version>
         </dependency>
         <dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>hibernate-session</artifactId>
+            <groupId>com.genrep.model</groupId>
+            <artifactId>app-model-jsf</artifactId>
             <version>1.0-UI-Model</version>
+            <exclusions> 
+                <exclusion>
+                    <groupId>javax.el</groupId>
+                    <artifactId>el-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.genrep.classification</groupId>
+                    <artifactId>app-classification</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>c3p0</groupId>

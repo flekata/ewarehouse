@@ -5,8 +5,8 @@
 package com.warehouse.beans;
 
 import com.genrep.document.ADocument;
-import com.genrep.involvedparty.Organization;
 import com.warehouse.core.Item;
+import com.warehouse.core.Organization;
 import com.warehouse.core.Warehouse;
 
 /**

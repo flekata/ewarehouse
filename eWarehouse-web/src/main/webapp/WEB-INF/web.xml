@@ -25,6 +25,11 @@
     <listener>
         <listener-class>com.genrep.session.listener.SessionListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>
+            com.genrep.application.view.bean.component.inputFile.InputFileSessionCleaner
+        </listener-class>
+    </listener>
     <!-- Facelets & IceFaces -->
     <context-param>
         <description>
@@ -161,12 +166,7 @@
     </listener>
     <listener>
         <listener-class>
-            org.icefaces.application.showcase.view.bean.examples.component.inputFile.InputFileSessionCleaner
-        </listener-class>
-    </listener>
-    <listener>
-        <listener-class>
-            org.icefaces.application.showcase.view.bean.examples.component.progressBar.OutputProgressController
+            com.genrep.application.view.bean.component.progressBar.OutputProgressController
         </listener-class>
     </listener>
     <!-- file upload Servlet -->

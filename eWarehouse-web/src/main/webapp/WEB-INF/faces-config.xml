@@ -4,7 +4,7 @@
 "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config xmlns="http://java.sun.com/JSF/Configuration">
     <lifecycle>
-        <phase-listener>com.genrep.phase.listener.PhaseListenerClass</phase-listener> 
+        <phase-listener>com.genrep.phase.listener.PhaseListenerClass</phase-listener>
     </lifecycle>
     <application>
         <view-handler>com.genrepsoft.facelets.FaceletViewHandlerWrapper</view-handler>
@@ -21,7 +21,7 @@
         </description>
         <managed-bean-name>applicationBuilder</managed-bean-name>
         <managed-bean-class>
-            org.icefaces.application.showcase.view.builder.ApplicationBuilder
+            com.genrep.application.view.builder.ApplicationBuilder
         </managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
@@ -30,7 +30,7 @@
         </description>
         <managed-bean-name>applicationController</managed-bean-name>
         <managed-bean-class>
-            org.icefaces.application.showcase.view.bean.ApplicationController
+            com.genrep.application.view.bean.ApplicationController
         </managed-bean-class>
         <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
@@ -39,7 +39,7 @@
         </description>
         <managed-bean-name>applicationModel</managed-bean-name>
         <managed-bean-class>
-            org.icefaces.application.showcase.view.bean.ApplicationSessionModel
+            com.genrep.application.view.bean.ApplicationSessionModel
         </managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
         <managed-property>
@@ -47,27 +47,27 @@
             <value>#{applicationBuilder.defaultNode}</value>
         </managed-property>
     </managed-bean>
- 	<managed-bean>
- 		<managed-bean-name>importGazetteBean</managed-bean-name>
- 		<managed-bean-class>com.genrep.ejurist.importing.ImportArchiveBean</managed-bean-class>
- 		<managed-bean-scope>session</managed-bean-scope>
- 	</managed-bean>
- 	<managed-bean>
- 		<managed-bean-name>importEducationalGazetteBean</managed-bean-name>
- 		<managed-bean-class>com.genrep.ejurist.importing.ImportEducationArchiveBean</managed-bean-class>
- 		<managed-bean-scope>session</managed-bean-scope>
- 	</managed-bean>
- 	<managed-bean>
- 		<managed-bean-name>progress</managed-bean-name>
- 		<managed-bean-class>com.genrep.guimodel.gui.comp.action.ActionStatus</managed-bean-class>
- 		<managed-bean-scope>session</managed-bean-scope>
- 	</managed-bean>
-	<component>
-		<component-type>net.sf.jsfcomp.acegijsf.Authorize</component-type>
-		<component-class>net.sf.jsfcomp.acegijsf.Authorize</component-class>
-	</component>
-	<component>
-		<component-type>net.sf.jsfcomp.acegijsf.Authentication</component-type>
-		<component-class>net.sf.jsfcomp.acegijsf.Authentication</component-class>
-	</component>
+    <managed-bean>
+        <managed-bean-name>importGazetteBean</managed-bean-name>
+        <managed-bean-class>com.genrep.ejurist.importing.ImportArchiveBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>importEducationalGazetteBean</managed-bean-name>
+        <managed-bean-class>com.genrep.ejurist.importing.ImportEducationArchiveBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>progress</managed-bean-name>
+        <managed-bean-class>com.genrep.guimodel.gui.comp.action.ActionStatus</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <component>
+        <component-type>net.sf.jsfcomp.acegijsf.Authorize</component-type>
+        <component-class>net.sf.jsfcomp.acegijsf.Authorize</component-class>
+    </component>
+    <component>
+        <component-type>net.sf.jsfcomp.acegijsf.Authentication</component-type>
+        <component-class>net.sf.jsfcomp.acegijsf.Authentication</component-class>
+    </component>
 </faces-config>

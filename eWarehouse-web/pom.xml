@@ -17,7 +17,6 @@
 
 
     <build>
-        <defaultGoal>deploy</defaultGoal>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -51,12 +50,28 @@
                     </webResources>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <useProjectReferences>true</useProjectReferences>
+                    <downloadSources>false</downloadSources>
+                    <downloadJavadocs>false</downloadJavadocs>
+                    <wtpversion>2.0</wtpversion>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <wtpContextName>/MIS-web</wtpContextName>
+                    <additionalProjectFacets>
+                        <jst.java>5.0</jst.java>
+                        <jst.web>2.4</jst.web>
+                    </additionalProjectFacets>
+                </configuration>
+            </plugin>
         </plugins>
 
-       
+
     </build>
-   
+
     <dependencies>
         <!-- icefaces -->
         <dependency>
@@ -73,6 +88,12 @@
             <groupId>com.sun</groupId>
             <artifactId>jsf-impl</artifactId>
             <version>${jsf.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>1.1.2</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -97,7 +118,7 @@
             <version>1.1.2</version>
             <scope>compile</scope>
         </dependency>
-       
+
         <dependency>
             <groupId>javax.xml</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -116,7 +137,7 @@
 
         <!-- persistence -->
         <dependency>
-            <groupId>com.genrep.docameleon</groupId>
+            <groupId>com.genrep.hibernate</groupId>
             <artifactId>hibernate-session</artifactId>
             <version>1.0-UI-Model</version>
             <exclusions>
@@ -131,7 +152,7 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.1.2</version>
         </dependency>
-       
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-annotations</artifactId>
@@ -171,22 +192,9 @@
             <version>${hibernate-validator.version}</version>
         </dependency>
 
-        <!-- genrep -->
-        <!--
+
         <dependency>
-            <groupId>com.genrep.toolbox</groupId>
-            <artifactId>toolbox-facelets</artifactId>
-            <version>${toolbox-facelets.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        -->
-        <dependency>
-            <groupId>com.genrep.docameleon</groupId>
+            <groupId>com.genrep.icefaces</groupId>
             <artifactId>app-iceFaces</artifactId>
             <version>1.0-UI-Model</version>
             <exclusions>
@@ -201,36 +209,14 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.genrep.docameleon</groupId>
+            <groupId>com.genrep.facelets</groupId>
             <artifactId>app-facelets-core</artifactId>
             <version>1.0-UI-Model</version>
         </dependency>
-        
-        
-        <!--<dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>app-iceFaces</artifactId>
-            <version>${docameleon.version}</version>
-        </dependency>-->
-        
+
+
         <dependency>
-            <groupId>com.genrep.toolbox</groupId>
-            <artifactId>toolbox-formula</artifactId>
-            <version>${toolbox-formula.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!--dependency>
-            <groupId>com.genrep.toolbox</groupId>
-            <artifactId>toolbox-annotations</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency-->
-        <dependency>
-            <groupId>com.genrep.docameleon</groupId>
+            <groupId>com.genrep.model</groupId>
             <artifactId>app-model-jsf</artifactId>
             <version>1.0-UI-Model</version>
             <exclusions>
@@ -239,13 +225,13 @@
                     <artifactId>el-api</artifactId>
                 </exclusion>
                 <exclusion>
-                    <groupId>com.genrep.docameleon</groupId>
+                    <groupId>com.genrep.classification</groupId>
                     <artifactId>app-classification</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.genrep.guimodel</groupId>
+            <groupId>com.genrep.model</groupId>
             <artifactId>app-gui-model</artifactId>
             <version>1.0-UI-Model</version>
             <type>jar</type>
@@ -256,29 +242,9 @@
                 </exclusion>
             </exclusions>
         </dependency>
-      <!--  <dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>module-products</artifactId>
-            <version>1.0-UI-Model</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
 
-        <dependency>
-            <groupId>com.genrep.docameleon</groupId>
-            <artifactId>module-party</artifactId>
-            <version>1.0-UI-Model</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+
+
         <dependency>
             <groupId>quartz</groupId>
             <artifactId>quartz</artifactId>
@@ -304,6 +270,18 @@
             <artifactId>eWarehouse-core</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <artifactId>toolbox-formula</artifactId>
+                    <groupId>com.genrep.toolbox</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.genrep.codex</groupId>
+            <artifactId>app-codex</artifactId>
+            <version>1.0-UI-Model</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -311,6 +289,7 @@
         <env>work</env>
         <netbeans.hint.deploy.server>Tomcat60</netbeans.hint.deploy.server>
     </properties>
+
 
 
 </project>

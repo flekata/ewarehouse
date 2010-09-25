@@ -29,4 +29,8 @@ public class WarehouseProcedure extends WarehouseOperationSet implements IProced
 //            getLogger().error(ose.getMessage());
         }
     }
+    @Override
+    public void saveNew(ISaveable saveable, boolean closeSessionOnError) throws OperationSetException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
