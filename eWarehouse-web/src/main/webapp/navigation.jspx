@@ -1,0 +1,30 @@
+
+<genrep:formWraper id="Component1"
+                   xmlns:h="http://java.sun.com/jsf/html"
+                   xmlns:f="http://java.sun.com/jsf/core"
+                   xmlns:genrep="http://www.genrepsoft.com/jsf"
+                   xmlns:ice="http://www.icesoft.com/icefaces/component"
+                   xmlns:c="http://java.sun.com/jstl/core"
+                   xmlns:ui="http://java.sun.com/jsf/facelets"
+                   bean="com.warehouse.beans.Content"
+                   orientation="Horizontal"
+                   catalogBean="#{codexCatalog}"
+                   enableState="#{false}"
+                   writeMode="#{false}">
+    <div class="genrep_header_container"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:ice="http://www.icesoft.com/icefaces/component">
+
+    </div>
+        <genrep:dynamicMenu method="get"
+                            id="dynamicMenuTest"
+                            params="com.warehouse.core.Menu"
+                            groupOnField="groupField"
+                            refresh="#{true}"
+                            rendered="#{true}"
+                            renderOn="always"
+                            labelField="itemField"
+                            catalogBean="#{clsCatalog}"
+                            action="navigate"/>
+  
+</genrep:formWraper>
