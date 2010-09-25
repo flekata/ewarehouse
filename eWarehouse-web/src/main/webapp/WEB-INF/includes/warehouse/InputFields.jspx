@@ -6,56 +6,57 @@
     xmlns:ice="http://www.icesoft.com/icefaces/component"
     xmlns:c="http://java.sun.com/jstl/core"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    id="Inputgrd221" columns="2">
-    <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
-    <genrep:panelGrid id="Inpuorgwarehouse" columns="4" >
-        <genrep:combo id="warehouse12"
+     columns="2">
+    <genrep:outputLabel  value="#{genrepmsgs['warehName']}" />
+    <genrep:panelGrid  columns="4" >
+        <genrep:combo 
                       field="warehouse"
                       insertNull="#{false}"
                       method="get"
                       labelField="name"
+                      submittable="#{false}"
+                      refresh="#{true}"
                       catalogBean="#{clsCatalog}"
-                      params="com.warehouse.core.Warehouse"
-                      refresh="#{true}"/>
-        <genrep:inputText id="newwarehouse" size="16"/>
-        <genrep:button id="btnwarehouse" action="AddNewWarehouse" />
+                      params="com.warehouse.core.Warehouse"/>
+        <genrep:inputText  size="16"/>
+        <genrep:button  action="AddNewWarehouse" />
     </genrep:panelGrid>
-    <genrep:outputLabel id="datedate12" value="#{genrepmsgs['date']}" />
-    <genrep:date id="date12" field="date" />
+    <genrep:outputLabel  value="#{genrepmsgs['date']}" />
+    <genrep:date field="date" />
 
-    <genrep:outputLabel id="organizationorganization12" value="#{genrepmsgs['organization']}" />
-    <genrep:panelGrid id="Inpuorganizationd" columns="4" >
-        <genrep:combo id="name12"
+    <genrep:outputLabel  value="#{genrepmsgs['organization']}" />
+    <genrep:panelGrid  columns="4" >
+        <genrep:combo 
                       field="organization"
                       method="get"
                       labelField="name"
                       catalogBean="#{clsCatalog}"
                       params="com.warehouse.core.Organization"
                       refresh="#{true}"/>
-        <genrep:inputText id="neworganization" size="16"/>
-        <genrep:button id="btnorganization" action="AddNewOrganization" />
+        <genrep:inputText  size="16"/>
+        <genrep:button  action="AddNewOrganization" />
     </genrep:panelGrid>
-    <genrep:outputLabel id="typetype12" value="#{genrepmsgs['type']}" />
-    <genrep:inputText id="type12" field="type" />
+    <genrep:outputLabel  value="#{genrepmsgs['type']}" />
+    <genrep:inputText  field="type" />
 
-    <genrep:outputLabel id="note12" value="#{genrepmsgs['note']}" />
-    <genrep:inputTextArea id="note122" field="note" rows="3" cols="3"/>
+    <genrep:outputLabel  value="#{genrepmsgs['note']}" />
+    <genrep:inputTextArea  field="note" rows="3" cols="3"/>
 
-    <genrep:outputLabel id="priceprice12" value="#{genrepmsgs['price']}" />
-    <genrep:inputText id="price12" field="price" />
+    <genrep:outputLabel  value="#{genrepmsgs['price']}" />
+    <genrep:inputText  field="price" />
 
-    <genrep:outputLabel id="itemitem12" value="#{genrepmsgs['item']}" />
-    <genrep:panelGrid id="Inputgr33d" columns="4" >
-        <genrep:combo id="tem12"
+    <genrep:outputLabel  value="#{genrepmsgs['item']}" />
+    <genrep:panelGrid  columns="4" >
+        <genrep:combo 
                       field="item"
                       method="get"
                       labelField="name"
                       catalogBean="#{clsCatalog}"
                       params="com.warehouse.core.Item"
                       refresh="#{true}"/>
-        <genrep:inputText id="newitem" size="16"/>
-        <genrep:button id="btnitem" action="AddNewItem" />
+        <genrep:inputText  size="16"/>
+        <genrep:button  action="AddNewItem" />
     </genrep:panelGrid>
-    <genrep:outputLabel id="size12" value="#{genrepmsgs['size']}" />
-    <genrep:inputText id="size12" field="size" />
+    <genrep:outputLabel  value="#{genrepmsgs['size']}" />
+    <genrep:inputText  field="size" />
 </genrep:panelGrid>

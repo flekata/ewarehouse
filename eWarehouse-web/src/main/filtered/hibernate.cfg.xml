@@ -30,6 +30,8 @@
         <mapping resource="warehouse/Organization.hbm.xml" />
         <mapping resource="warehouse/Output.hbm.xml" />
         <mapping resource="warehouse/Warehouse.hbm.xml" />
+
+        <mapping resource="warehouse/Menu.hbm.xml" />
         <!-- DB2 local -->
     <!--    <property name="dialect">org.hibernate.dialect.DB2Dialect
         </property>
