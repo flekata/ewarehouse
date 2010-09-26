@@ -53,14 +53,8 @@
     </bean>
     <bean id="customAuthenticationProcessingFilter"
           class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
-        <!--<sec:custom-filter ref="FORM_LOGIN_FILTER" />-->
-        <!--<property name="defaultTargetUrl" value="/login.jsp" />-->
         <property name="authenticationManager" ref="authenticationManager" />
-        <!--<property name="authenticationFailureUrl" value="/login.jsp?authfailed=true" />-->
-        <!--<property name="allowSessionCreation" value="true" />-->
-        <!--<property name="authenticationSuccessHandler" ref="roleBasedTargetUrlResolver" />-->
         <property name="authenticationFailureHandler" ref="authenticationFailureHandler" />
-        <!--<property name="sessionAuthenticationStrategy" ref="defaultConcurrentSessionController"/>-->
     </bean>
     <sec:http lowercase-comparisons="false" entry-point-ref="myAuthenticationEntryPoint" auto-config="false">
         <sec:custom-filter position="FORM_LOGIN_FILTER" ref="customAuthenticationProcessingFilter" />
@@ -70,31 +64,16 @@
         <sec:intercept-url pattern="/logout.html" filters="none"/>
         <sec:intercept-url pattern="/index.jsp" filters="none"/>
         <sec:intercept-url pattern="/login.jsp" filters="none"/>
-        <sec:intercept-url pattern="/index.html" filters="none"/>
-        <sec:intercept-url pattern="/conn.html" filters="none"/>
-        <sec:intercept-url pattern="/session.html" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/images/login_bg.jpg" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/images/login_header.jpg" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/images/login_ok.jpg" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/images/login_ok_hover.jpg" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/images/login_key.gif" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/css/login.css" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/pristupi.jpg" filters="none"/>
         <sec:intercept-url pattern="/userRole" filters="none"/>
         <sec:intercept-url pattern="/**"
                            access="ROLE_USER"/>
         <sec:logout invalidate-session="true" logout-success-url="/logout.html"/>
-        <!--<sec:form-login login-page="/login.html" authentication-failure-url="/login.html?login_error=1"/>-->
-    <!--     <sec:session-management invalid-session-url="/login.html">
-                       <sec:concurrency-control max-sessions="1"
-                                     error-if-maximum-exceeded="true"
-                                     expired-url="/login.html" />
-        </sec:session-management>-->
-
-        <!--sec:port-mappings>
-            <sec:port-mapping http="5580" https="5543"/>
-            <sec:port-mapping http="80" https="443"/>
-        </sec:port-mappings-->
 
     </sec:http>
 
@@ -107,11 +86,4 @@
         <sec:authentication-provider user-service-ref='userService'/>
         <sec:authentication-provider ref="daoAuthenticationProvider"/>
     </sec:authentication-manager>
-    <!--<sec:authentication-manager alias="authManager"/>
-        <sec:authentication-provider>
-            <sec:user-service >
-                <sec:user name="admin" password="admin" authorities="ROLE_SUPERVISOR, ROLE_USER, ROLE_TELLER" />
-            </sec:user-service>
-        </sec:authentication-provider>-->
-    <!-- </sec:authentication-manager>-->
 </beans>

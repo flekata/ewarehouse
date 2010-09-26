@@ -1,6 +1,5 @@
 <html>
     <head>
-        <title>Human Resources</title>
     </head>
     <body>
         <%
