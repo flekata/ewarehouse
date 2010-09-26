@@ -435,7 +435,7 @@
             </releases>
             <snapshots>
                 <checksumPolicy>fail</checksumPolicy>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
                 <updatePolicy>daily</updatePolicy>
             </snapshots>
             <url>http://genrepsoft.net/nexus/content/groups/public</url>

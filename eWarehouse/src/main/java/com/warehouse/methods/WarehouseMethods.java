@@ -25,18 +25,19 @@ public class WarehouseMethods {
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
 //        Warehouse wh = (Warehouse) cont.getContainerBean();
         SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
-        Warehouse wh = (Warehouse) lbox.getValueObject();
-        if (wh != null) {
-            String wrname = (String) wh.getName();
-            List inputList = null;
-            List outputList = null;
-            WarehouseProcedure proc = new WarehouseProcedure(AppFactory.getCurrentApplication().getName(), "codexSession");
-            inputList = proc.getWarehausesInput(wrname);
-            outputList = proc.getWarehausesOutput(wrname);
+        if (lbox.getValueObject() != null) {
+            Warehouse wh = (Warehouse) lbox.getValueObject();
+            if (wh != null) {
+                String wrname = (String) wh.getName();
+                List inputList = null;
+                List outputList = null;
+                WarehouseProcedure proc = new WarehouseProcedure(AppFactory.getCurrentApplication().getName(), "codexSession");
+                inputList = proc.getWarehausesInput(wrname);
+                outputList = proc.getWarehausesOutput(wrname);
 
-            list = balance(makeListFromObj(inputList), makeListFromObj(outputList));
+                list = balance(makeListFromObj(inputList), makeListFromObj(outputList));
+            }
         }
-
         return list;
     }
 
