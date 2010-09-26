@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DATE" class="java.util.Date"/>
+	<parameter name="WAR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select sum(neso.size1) as siz,
+neso.war,
+neso.itm
+from
+(
+select
+WAREHOUSE.INPU.SIZE as size1,
+WAREHOUSE.WARH.NAME as war,
+WAREHOUSE.ITM.NAME as itm
+from WAREHOUSE.INPU
+ join WAREHOUSE.WARH
+on    WAREHOUSE.WARH.UID=WAREHOUSE.INPU.WRHS
+ join WAREHOUSE.ITM
+on    WAREHOUSE.ITM.UID=WAREHOUSE.INPU.ITMM
+WHERE date(WAREHOUSE.INPU.DATE) < $P{DATE} and WAREHOUSE.WARH.NAME=$P{WAR}
+
+union
+
+select
+-WAREHOUSE.OUTPU.SIZE as size1,
+WAREHOUSE.WARH.NAME as war,
+WAREHOUSE.ITM.NAME as itm
+from WAREHOUSE.OUTPU
+ join WAREHOUSE.WARH
+on    WAREHOUSE.WARH.UID=WAREHOUSE.OUTPU.WRHS
+ join WAREHOUSE.ITM
+on    WAREHOUSE.ITM.UID=WAREHOUSE.OUTPU.ITMM
+WHERE date(WAREHOUSE.OUTPU.DATE) < $P{DATE} and WAREHOUSE.WARH.NAME=$P{WAR}
+) as neso
+group by neso.war,
+neso.itm]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
