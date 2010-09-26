@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    Document   : remoting-servlet.xml
+    Created on : December 30, 2009, 10:36 AM
+    Author     : jonycus
+    Description:
+        Purpose of the document follows.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.devx.hessian.server"/>
+
+    <bean id="accountService" class="com.genrep.eRegistration.services.ERegistrationServiceImpl">
+        <!-- any additional properties, maybe a DAO? -->
+    </bean>
+
+    <bean name="/RoleService"
+          class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <property name="service" ref="accountService" />
+        <property name="serviceInterface" value="com.genrep.container.service.registration.IRegistrationService"/>
+    </bean>
+</beans>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Application context definition for "example" DispatcherServlet.
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:genrepns="http://www.genrepsoft.com/schema/genrep"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
+       http://www.genrepsoft.com/schema/genrep http://www.genrepsoft.com/schema/genrep/genrepns.xsd">
+
+    <!-- chart
+    <bean name="chart" class="com.genrep.chart.ChartBean" />
+    <bean name="chartMed" class="com.genrep.chart.ChartMediator" />
+-->
+
+    <bean id="derbyNetworkServerLoader" class="com.genrep.system.load.DerbyNetworkServerLoader" scope="singleton" >
+        <constructor-arg index="0" value="localhost" type="java.lang.String" />
+        <constructor-arg index="1" value="1527" type="java.lang.String" />
+    </bean>
+
+
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>file:${user.home}/ejurist.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="faceletViewHandler"  class="com.genrepsoft.facelets.FaceletViewHandlerWrapper" factory-method="getInstance">
+        <property name="refreshPeriodValue" value="${facelet.refreshPeriod}"/>
+    </bean>
+
+    <import resource="classpath*:app-model-jsf-config.xml" />
+    <import resource="acegi-no-cas-no-db.xml" />
+    <import resource="classpath*:app-init-config.xml" />
+    
+    <!-- App & Session Impl -->
+    <bean id="eRegistrationApp" class="com.genrep.hibernate.session.manager.HibernateSessionManagerImpl">
+        <constructor-arg index="0" value="hibernate.cfg.xml" type="java.lang.String" />
+    </bean>
+    <bean id="eRegistrationSessionManagerBean" scope="session"
+          class="com.genrep.session.manager.impl.DefaultSessionManager">
+        <property name="impl" ref="eRegistrationApp"/>
+        <property name="reloadingSession">
+            <map key-type="java.lang.String"
+                 value-type="java.lang.Boolean">
+                <entry key="roleUser">
+                    <value>
+                        true
+                    </value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="eRegistrationDocumentManager" class="com.genrep.document.manager.DocumentManager"/>
+
+    <bean id="e-registration-application" factory-method="createApplication"
+          class="com.genrep.container.service.application.AppFactory">
+        <constructor-arg index="0" value="com.genrep.eRegistration.app.ERegistrationApp" type="java.lang.String" />
+        <constructor-arg index="1" value="com.genrep.app.JSFAppImpl" type="java.lang.String" />
+        <property name="sessionManagerName" value="eRegistrationSessionManagerBean"/>
+        <property name="documentManager" ref="eRegistrationDocumentManager"/>
+    </bean>
+
+    <bean id="defaultOperationSet" class="com.warehouse.procedure.WarehouseProcedure" scope="session">
+        <constructor-arg index="0" value="com.genrep.eRegistration.app.ERegistrationApp" type="java.lang.String"/>
+        <constructor-arg index="1" value="codexEntity" type="java.lang.String" />
+    </bean>
+
+    <bean name="ctxtUtil"
+          class="com.genrep.application.util.ContextUtilBean" />
+    <!-- Managed Bean for dynamic style examples -->
+    <bean name="styleBean" scope="session"
+          class="com.genrep.application.util.StyleBean">
+    </bean>
+    <!-- END Component Showcase faces-config-application-beans.xml -->
+    <bean name="locales" scope="session"
+          class="com.genrep.application.locale.LocaleBean">
+    </bean>
+
+    <bean name="codexService" class="com.genrep.codex.service.impl.CodexServiceImpl"/>
+    <bean name="serviceReader" class="com.genrep.service.reader.RegistrationServiceReader">
+        <property name="codexService" ref="codexService"/>
+        <!--property name="chartBean" ref="chart"/-->
+    </bean>
+
+    <genrepns:catalog id="clsfCatalog">
+
+        <genrepns:methods class="com.warehouse.methods.WarehouseMethods" method="getWarehauses" alias="getWarehauses" params="com.genrep.guimodel.service.gui.comp.AGUIContainer" />
+        <genrepns:methods alias="getClassifications"
+                          class="com.genrep.service.reader.RegistrationServiceReader"
+                          method="getClassifications"
+                          params="java.lang.String" />
+        <genrepns:methods alias="get"
+                          class="com.genrep.service.reader.RegistrationServiceReader"
+                          method="get"
+                          params="java.lang.String" />
+        <genrepns:methods alias="getState"
+                          class="com.genrep.service.reader.RegistrationServiceReader"
+                          method="getState"
+                          params="java.lang.String" />                       
+    </genrepns:catalog>
+
+    <context:annotation-config />
+	
+</beans>

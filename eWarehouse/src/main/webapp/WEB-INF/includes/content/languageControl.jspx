@@ -1,0 +1,26 @@
+
+
+<!--
+Document   : languageControl
+Created on : 25.7.2008, 12:23:
+Author     : vasko
+-->
+<ice:form xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:ice="http://www.icesoft.com/icefaces/component">
+  <ice:panelGroup
+    styleClass="languageControlContainer"
+    style="vertical-align: middle;">
+
+  <ice:panelGroup>
+    <ice:selectOneMenu id="currentLanguage"
+                       styleClass="languageSelectOneMenu"
+                       value="#{locales.currentLocale}"
+                       partialSubmit="true">
+      <f:selectItems id="supportedLocales" value="#{locales.supportedLocales}"/>
+    </ice:selectOneMenu>
+  </ice:panelGroup>
+
+  </ice:panelGroup>
+
+</ice:form>

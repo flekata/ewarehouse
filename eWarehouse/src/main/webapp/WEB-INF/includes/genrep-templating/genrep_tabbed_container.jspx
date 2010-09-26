@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!--
+    Document   : genrep_tabbed_container
+    Created on : 9.9.2008, 13:28:
+    Author     : vasko
+-->
+<ice:form id="iceform"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ice="http://www.icesoft.com/icefaces/component"
+          xmlns:ui="http://java.sun.com/jsf/facelets" >
+
+    <ice:panelTabSet id="genreppnltabset" styleClass="componentTabSetContainer"
+                     tabChangeListener="#{applicationController.processTabChange}"
+                     selectedIndex="#{applicationModel.selectedTabIndex}">
+
+
+        <ice:panelTab  renderedOnUserRole="#{applicationModel.currentNode.contentDescriptor.appContent.renderOnUserRole}" label="#{genrepmsgs[applicationModel.currentNode.contentDescriptor.title]}">
+            <ui:insert name="content">
+
+            </ui:insert>
+        </ice:panelTab>
+
+        <!--
+      The bean is responsible for streaming html documentation to
+      this placeholder
+    -->
+    <ice:panelTab  renderedOnUserRole="#{applicationModel.currentNode.contentDescriptor.help.renderOnUserRole}" label="#{genrepmsgs['Help']}">
+            <ui:insert name="help">
+
+            </ui:insert>
+        </ice:panelTab>
+        <ice:panelTab rendered="#{!empty applicationModel.currentNode.contentDescriptor.import.renderOnUserRole}" label="#{genrepmsgs['Import1']}">
+            <ui:insert name="import">
+
+            </ui:insert>
+        <!--/ice:panelTab-->
+   <!-- <ice:panelTab label="#{genrepmsgs['Info']}">
+            <ui:insert name="info">
+                <ui:include src="/WEB-INF/includes/content/info.jspx" />
+            </ui:insert>-->
+        </ice:panelTab> 
+    </ice:panelTabSet>
+
+</ice:form>

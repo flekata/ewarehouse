@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                                                http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.xsd">
+
+    <sec:http lowercase-comparisons="false" entry-point-ref="casProcessingFilterEntryPoint">
+
+        <sec:intercept-url pattern="/403.html" filters="none"/>
+        <sec:intercept-url pattern="/403.jpg" filters="none"/>
+        <sec:intercept-url pattern="/cas-logout.jsp" filters="none"/>
+        <sec:intercept-url pattern="/**"
+                           access="ROLE_USER"/>
+        <sec:intercept-url pattern="/js/config.js" filters="none"/>
+        <!--sec:logout logout-url="/cas-logout.jsp" logout-success-url="https://debiantomcat:9443/cas/login" invalidate-session="true"/-->
+        <sec:logout invalidate-session="true" />
+        <!--sec:port-mappings>
+            <sec:port-mapping http="5580" https="5543"/>
+            <sec:port-mapping http="80" https="443"/>
+        </sec:port-mappings-->
+    </sec:http>
+
+    <bean id="passwordEncoder" class="org.springframework.security.providers.encoding.ShaPasswordEncoder"/>
+
+    <!-- where do I go when I need authentication -->
+    <bean id="casProcessingFilterEntryPoint" class="org.springframework.security.ui.cas.CasProcessingFilterEntryPoint">
+        <property name="loginUrl" value="https://debiantomcat:9443/cas/login"/>
+        <property name="serviceProperties" ref="serviceProperties"/>
+    </bean>
+
+    <!-- which service (application) am I authenticating -->
+    <bean id="serviceProperties" class="org.springframework.security.ui.cas.ServiceProperties">
+        <property name="service" value="http://localhost:8081/webproject3-web10/j_spring_cas_security_check"/>
+        <property name="sendRenew" value="false"/>
+    </bean>
+
+    <sec:authentication-manager alias="authenticationManager"/>
+
+    <bean id="casSingleSignOutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter">
+        <sec:custom-filter before="CAS_PROCESSING_FILTER"/>
+    </bean>
+
+    <bean id="casProcessingFilter" class="org.springframework.security.ui.cas.CasProcessingFilter">
+        <sec:custom-filter after="CAS_PROCESSING_FILTER"/>
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationFailureUrl" value="/403.html"/>
+        <property name="defaultTargetUrl" value="/"/>
+    </bean>
+
+    <bean id="casAuthenticationProvider" class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+        <sec:custom-authentication-provider/>
+        <property name="userDetailsService" ref="userService"/>
+        <property name="serviceProperties" ref="serviceProperties"/>
+        <property name="ticketValidator">
+            <bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+                <constructor-arg index="0" value="https://debiantomcat:9443/cas"/>
+            </bean>
+        </property>
+        <property name="key" value="my_password_for_this_auth_provider_only"/>
+    </bean>
+
+    <!-- Log failed authentication attempts to commons-logging -->
+    <bean id="loggerListener" class="org.springframework.security.event.authentication.LoggerListener"/>
+
+
+    <bean id="userService" class="com.genrep.authentication.AuthenticationDaoImpl">
+
+    </bean>
+</beans>

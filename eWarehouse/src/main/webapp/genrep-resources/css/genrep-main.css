@@ -1,0 +1,20 @@
+/* 
+    Document   : genrep-main
+    Created on : 23.7.2008, 18:03:
+    Author     : vasko
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+@import "genrep-layout.css";
+@import "genrep-panels.css";
+@import "genrep-trees.css";
+@import "genrep-tabs.css";
+@import "componentStyles.css";
+@import "genrep-connection-status.css";
+

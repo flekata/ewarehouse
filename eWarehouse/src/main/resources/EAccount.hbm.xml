@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.genrep.eRegistration.account.EAccountRequest" table="CASAdmin.E_ACC">
+    <id name="UID">
+      <generator class="uuid"/>
+    </id>
+    <!-- ADocument fields START -->
+    <!--property column="state" name="state"/>
+    <property column="status" name="status"/-->
+    <property column="authorName" name="authorName"/>
+    <property column="createdDate" name="createdDate"/>
+    <property column="lastModifiedBy" name="lastModifiedBy"/>
+    <property column="lastModifiedDate" name="lastModifiedDate"/>
+    <property column="effectiveDate" name="effectiveDate"/>
+    <property column="sourceSystem" name="sourceSystem"/>
+    <property column="endDate" name="endDate"/>
+    <!-- ADocument fields STOP -->
+    <property column="E_ACC_EMAIL" name="email"/>
+    <property column="E_ACC_PASS" name="accountPassword"/>
+    <property column="E_ACC_EUSER" name="accountUsername"/>
+    <property column="E_ACC_STAT" name="accountState"/>
+    <property column="E_ACC_NAME" name="givenName"/>
+    <property column="E_ACC_SURNAME" name="surname"/>
+    <property column="E_ACC_ORG_NAME" name="primaryCommercialName"/>
+    <property column="E_ACC_ORG_BNAME" name="registeredBusinessName"/>
+    <property column="E_ACC_DURATION" name="duration"/>
+    <property column="E_ACC_IPTYPE" name="ipType"/>
+    <bag cascade="save-update" lazy="false" name="accountPackage" table="CASAdmin.PKG_ACC">
+      <key column="PKG_ACC_UID"/>
+      <many-to-many class="com.genrep.codex.packages.Package" column="PKG_UID" lazy="false"/>
+    </bag>
+    <many-to-one class="com.genrep.codex.country.Country" column="userCountry" name="userCountry"/>
+    <property column="numOfAccounts" name="numOfAccounts"/>
+    <property column="address" name="address"/>
+    <property column="contactPerson" name="contactPerson"/>
+    <property column="phoneNum" name="phoneNum"/>
+    <property column="mobileNum" name="mobileNum"/>
+    <property column="place" name="place"/>
+    <property column="id" name="id"/>
+    <property column="smsAuthentication" name="smsAuthentication"/>
+    <property column="accStartDate" name="accStartDate"/>
+    <property column="accEndDate" name="accEndDate"/>
+  </class>
+</hibernate-mapping>

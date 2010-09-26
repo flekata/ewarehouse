@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <sec:http lowercase-comparisons="false" auto-config="true">
+
+        <sec:intercept-url pattern="/403.html" filters="none"/>
+        <sec:intercept-url pattern="/403.jpg" filters="none"/>
+        <sec:intercept-url pattern="/cas-logout.jsp" filters="none"/>
+        <sec:intercept-url pattern="/login.html" filters="none"/>
+        <sec:intercept-url pattern="/**"
+                           access="ROLE_USER"/>
+        <sec:logout invalidate-session="true" />
+        <!--sec:concurrent-session-control max-sessions="1" /-->
+    </sec:http>
+
+    <bean id="loggerListener"
+          class="org.springframework.security.authentication.event.LoggerListener" />
+
+    <bean id="userService" class="com.genrep.authentication.AuthenticationDaoImplNoDatabase">
+        <property name="firstname" value="kire"/>
+        <property name="lastname" value="arsov"/>
+        <property name="username" value="admin"/>
+        <property name="password" value="admin"/>
+        <property name="roles" value="ROLE_ADMIN;ROLE_USER"/>
+    </bean>
+
+    <sec:authentication-manager alias="authManager">
+        <sec:authentication-provider user-service-ref='userService'/>
+    </sec:authentication-manager>
+</beans>

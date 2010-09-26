@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+    <bean id="authenticationFailureHandler"
+            class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+        <property name="defaultFailureUrl" value="/login.jsp?authfailed=true"/>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.security.authentication.CredentialsExpiredException">
+                    /login.jsp?newpassword=true
+                </prop>
+                <prop key="org.springframework.security.authentication.LockedException">
+                    /login.jsp?acclocked=true
+                </prop>
+                <prop key="org.springframework.security.authentication.DisabledException">
+                    /login.jsp?accdisabled=true
+                </prop>
+                <prop key="org.springframework.security.authentication.AuthenticationServiceException">
+                    /login.jsp?serviceException=true
+                </prop>
+                <prop key="org.springframework.security.authentication.BadCredentialsException">
+                    /login.jsp?authfailed=true
+                </prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>message</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="myAuthenticationEntryPoint"
+          class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <property name="loginFormUrl" value="/login.jsp" />
+    </bean>
+
+    <bean id="daoAuthenticationProvider"
+          class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="userDetailsService" ref="userService" />
+        <property name="hideUserNotFoundExceptions"
+                  value="false" />
+    </bean>
+    <bean id="customAuthenticationProcessingFilter"
+          class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+        <!--<sec:custom-filter ref="FORM_LOGIN_FILTER" />-->
+        <!--<property name="defaultTargetUrl" value="/login.jsp" />-->
+        <property name="authenticationManager" ref="authenticationManager" />
+        <!--<property name="authenticationFailureUrl" value="/login.jsp?authfailed=true" />-->
+        <!--<property name="allowSessionCreation" value="true" />-->
+        <!--<property name="authenticationSuccessHandler" ref="roleBasedTargetUrlResolver" />-->
+        <property name="authenticationFailureHandler" ref="authenticationFailureHandler" />
+        <!--<property name="sessionAuthenticationStrategy" ref="defaultConcurrentSessionController"/>-->
+    </bean>
+    <sec:http lowercase-comparisons="false" entry-point-ref="myAuthenticationEntryPoint" auto-config="false">
+        <sec:custom-filter position="FORM_LOGIN_FILTER" ref="customAuthenticationProcessingFilter" />
+        <sec:session-management invalid-session-url="/login.jsp" />
+        <sec:intercept-url pattern="/403.html" filters="none"/>
+        <sec:intercept-url pattern="/403.jpg" filters="none"/>
+        <sec:intercept-url pattern="/logout.html" filters="none"/>
+        <sec:intercept-url pattern="/index.jsp" filters="none"/>
+        <sec:intercept-url pattern="/login.jsp" filters="none"/>
+        <sec:intercept-url pattern="/index.html" filters="none"/>
+        <sec:intercept-url pattern="/conn.html" filters="none"/>
+        <sec:intercept-url pattern="/session.html" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_bg.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_header.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_ok.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_ok_hover.jpg" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/login_key.gif" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/css/login.css" filters="none"/>
+        <sec:intercept-url pattern="/genrep-resources/images/pristupi.jpg" filters="none"/>
+        <sec:intercept-url pattern="/userRole" filters="none"/>
+        <sec:intercept-url pattern="/**"
+                           access="ROLE_USER"/>
+        <sec:logout invalidate-session="true" logout-success-url="/logout.html"/>
+        <!--<sec:form-login login-page="/login.html" authentication-failure-url="/login.html?login_error=1"/>-->
+    <!--     <sec:session-management invalid-session-url="/login.html">
+                       <sec:concurrency-control max-sessions="1"
+                                     error-if-maximum-exceeded="true"
+                                     expired-url="/login.html" />
+        </sec:session-management>-->
+
+        <!--sec:port-mappings>
+            <sec:port-mapping http="5580" https="5543"/>
+            <sec:port-mapping http="80" https="443"/>
+        </sec:port-mappings-->
+
+    </sec:http>
+
+    <bean id="loggerListener"
+          class="org.springframework.security.authentication.event.LoggerListener" />
+
+    <bean id="userService" class="com.genrep.authentication.AuthenticationDaoImpl"/>
+
+    <sec:authentication-manager alias="authenticationManager" >
+        <sec:authentication-provider user-service-ref='userService'/>
+        <sec:authentication-provider ref="daoAuthenticationProvider"/>
+    </sec:authentication-manager>
+    <!--<sec:authentication-manager alias="authManager"/>
+        <sec:authentication-provider>
+            <sec:user-service >
+                <sec:user name="admin" password="admin" authorities="ROLE_SUPERVISOR, ROLE_USER, ROLE_TELLER" />
+            </sec:user-service>
+        </sec:authentication-provider>-->
+    <!-- </sec:authentication-manager>-->
+</beans>

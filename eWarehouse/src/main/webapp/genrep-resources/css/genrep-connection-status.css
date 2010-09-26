@@ -1,0 +1,40 @@
+/* 
+Document   : genrep-layout
+Created on : 23.7.2008, 18:03:
+Author     : vasko
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/* 
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+
+*/
+
+.iceOutConStat {
+    width: 25px;
+    height: 0px;
+    border: none;
+    font-size: 2em;
+    margin: 0;
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.iceOutConStatInactv {
+    
+}
+
+.iceOutConStatActv {
+    
+}
+
+.iceOutConStatCaution {
+    
+}
+
+.iceOutConStatDisconnect {
+    
+}

@@ -1,0 +1,50 @@
+/* 
+    Document   : genrep-main
+    Created on : 23.7.2008, 18:03:
+    Author     : vasko
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #d3dbe6;
+    text-align: center;
+}
+
+a img {
+    border: none;
+}
+
+div.mainItroHeader {
+    position: absolute;
+    left: 50%;
+    margin-left: -75px;
+    top: 50%;
+    margin-top: -150px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    background: #fff;
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    color: #4a4a4a;
+    border: 1px solid #4a4a4a;
+}
+
+div.mainItroHeader div {
+    margin: 20px;
+}
+
+a.changePass {
+    position: absolute;
+    top: 10px;
+    left: 70%;
+}

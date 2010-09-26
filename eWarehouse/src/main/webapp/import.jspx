@@ -1,0 +1,219 @@
+
+<html  xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:genrep="http://www.genrepsoft.com/jsf"
+    xmlns:ice="http://www.icesoft.com/icefaces/component"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Login</title>
+        <style type="text/css">
+        	.description {
+        		padding: 20px;
+        	}
+        	
+        </style>
+    </head>
+
+    <body style="padding: 20px;">
+       	
+    	<c:if test="#{import.errorCount>0 and import.file!=null}">
+    		Following errors occurred while importing file:<br/>
+    		<ul>
+				<c:forEach items="#{import.errors}" var="error">
+					<li><ice:outputText value="#{error}"/></li>
+				</c:forEach>
+    		</ul>
+    	</c:if>
+    	
+    	<c:if test="#{import.warningCount>0 and import.file!=null}">
+    		Following warnings were reported while importing file:<br/>
+    		<ul>
+				<c:forEach items="#{import.warnings}" var="warning">
+					<li><ice:outputText value="#{warning}"/></li>
+				</c:forEach>
+    		</ul>
+    	</c:if>
+    	
+     	<c:if test="#{empty import.file and empty import.sheetData}">
+			<h1>Step 1</h1>
+			<div class="description">
+					Please select a standard  <b> Excel 97/2000/2003 XLS</b> file and press the  <b> Upload</b> button
+					to continue.
+			</div>
+	    	<ice:form>
+	       		<ice:panelGrid columns="2">
+	       			<ice:outputText value="Excel File"/>
+	       			<ice:inputFile actionListener="#{import.uploadActionListener}" immediate="true" />
+	       		</ice:panelGrid>
+	       	</ice:form>
+       	</c:if>
+       	
+       	<c:if test="#{not empty import.sheetData and !import.dataImported}">
+       		<h1>Step 2</h1>
+			<div class="description">
+				<p>
+					Please select appropriate package definition and user profiles that will be added
+					to the imported users for each sheet of data individually.
+				</p>
+			</div>
+			<ice:form>
+				<ice:panelGrid columns="2">
+					<c:forEach var="sheet" items="#{import.sheetData}">
+		       			<ice:outputText value="#{sheet.title} Package"/>
+		       			<ice:selectOneListbox value="#{sheet.packageDefinition}" size="1" partialSubmit="true">
+		       				<f:selectItems value="#{import.packages}"/>
+		       			</ice:selectOneListbox>
+					</c:forEach>
+				</ice:panelGrid>
+					<hr/>
+				<ice:panelGrid columns="2">
+					<c:forEach var="sheet" items="#{import.sheetData}">
+		       			<ice:outputText value="#{sheet.title} Profile"/>
+		       			<ice:selectOneListbox value="#{sheet.profile}" size="1" partialSubmit="true">
+		       				<f:selectItems value="#{import.profiles}"/>
+		       			</ice:selectOneListbox>
+					</c:forEach>
+				</ice:panelGrid>				
+				<ice:commandButton action="#{import.clear}" value="Reset"/>
+				<ice:commandButton action="#{import.importData}" value="Next"/>
+			</ice:form>
+       	</c:if>
+       	
+       	<ice:form rendered="#{not empty import.file and import.dataImported and empty import.actionStatus}">
+       	<h1>Step 3</h1>
+			<div class="description">
+				<p>
+					Please review the users for each imported sheet and press the <b> Import</b> button
+					to start importing users.
+				</p>
+			</div>
+			
+       	<ice:panelTabSet>
+       		<c:forEach var="userList" items="#{import.sheetData}">
+	       		<ice:panelTab label="#{userList.title}">	
+						<ice:dataTable id="#{userList.id}Table" value="#{userList.users}" var="item" rows="15" border="1">
+							<ice:column>
+								<f:facet name="header">First Name</f:facet>
+								<ice:outputText value="#{item.firstname}"/>
+							</ice:column>
+							<ice:column>
+								<f:facet name="header">Last Name</f:facet>
+								<ice:outputText value="#{item.lastname}"/>
+							</ice:column>
+							<ice:column>
+								<f:facet name="header">Username</f:facet>
+								<ice:outputText value="#{item.username}"/>
+							</ice:column>
+							<ice:column>
+								<f:facet name="header">Password</f:facet>
+								<ice:outputText value="#{item.password}"/>
+							</ice:column>
+							<ice:column>
+								<f:facet name="header">Effective Date</f:facet>
+								<ice:outputText value="#{item.effectiveDate}"/>
+							</ice:column>
+							<ice:column>
+								<f:facet name="header">Profile</f:facet>
+								<ice:outputText value="#{item.userProfile.profileName}"/>
+							</ice:column>
+								<ice:column>
+								<f:facet name="header">Package</f:facet>
+								<ice:outputText value="#{item.packageDefinition[0].name}"/>
+							</ice:column>
+						</ice:dataTable>
+						
+						<ice:dataPaginator for="#{userList.id}Table" paginator="true" paginatorMaxPages="10">
+							<f:facet name="first">
+					        <ice:graphicImage id="#{tableControler.property['id'].lastValue}firstpage"
+					                          url="#{styleBean.imageDirectory}arrow-first.gif"
+					                          style="border:none;"
+					                          title="#{msgs['page.dataScrolling.firstpage']}"/>
+						    </f:facet>
+						    <f:facet name="last">
+						        <ice:graphicImage id="#{tableControler.property['id'].lastValue}lastpage"
+						                          url="#{styleBean.imageDirectory}arrow-last.gif"
+						                          style="border:none;"
+						                          title="#{msgs['page.dataScrolling.lastpage']}"/>
+						    </f:facet>
+						    <f:facet name="previous">
+						        <ice:graphicImage id="#{tableControler.property['id'].lastValue}previouspage"
+						                          url="#{styleBean.imageDirectory}arrow-previous.gif"
+						                          style="border:none;"
+						                          title="#{msgs['page.dataScrolling.previouspage']}"/>
+						    </f:facet>
+						    <f:facet name="next">
+						        <ice:graphicImage id="#{tableControler.property['id'].lastValue}nextpage"
+						                          url="#{styleBean.imageDirectory}arrow-next.gif"
+						                          style="border:none;"
+						                          title="#{msgs['page.dataScrolling.nextpage']}"/>
+						    </f:facet>
+						    <f:facet name="fastforward">
+						        <ice:graphicImage id="#{tableControler.property['id'].lastValue}fastforward"
+						                          url="#{styleBean.imageDirectory}arrow-ff.gif"
+						                          style="border:none;"
+						                          title="#{msgs['page.dataScrolling.fastforward']}"/>
+						    </f:facet>
+						    <f:facet name="fastrewind">
+						        <ice:graphicImage id="#{tableControler.property['id'].lastValue}fastrewind"
+						                          url="#{styleBean.imageDirectory}arrow-fr.gif"
+						                          style="border:none;"
+						                          title="#{msgs['page.dataScrolling.fastbackward']}"/>
+						    </f:facet>
+						</ice:dataPaginator>
+						
+						<div>
+						<ice:dataPaginator for="#{userList.id}Table" paginator="true" paginatorMaxPages="10"
+		       				 rowsCountVar="rowsCount"
+	     			        displayedRowsCountVar="displayedRowsCount"
+	     			        firstRowIndexVar="firstRowIndex"
+	    			        lastRowIndexVar="lastRowIndex"
+	           				pageCountVar="pageCount"
+	            		   pageIndexVar="pageIndex">
+						 <ice:outputFormat
+				                styleClass="standard"
+				                value="{0} users, displaying {1} users(s), from {2} to {3}. Page {4} / {5}.">
+				            <f:param value="#{rowsCount}"/>
+				            <f:param value="#{displayedRowsCount}"/>
+				            <f:param value="#{firstRowIndex}"/>
+				            <f:param value="#{lastRowIndex}"/>
+				            <f:param value="#{pageIndex}"/>
+				            <f:param value="#{pageCount}"/>
+				        </ice:outputFormat>
+					</ice:dataPaginator>
+					</div>
+	       		</ice:panelTab>
+       		</c:forEach>
+       	</ice:panelTabSet>
+       	
+		 <ice:commandButton action="#{import.clear}" value="Reset"/>
+		 <ice:commandButton action="#{import.importUsers}" value="Import"/>
+       	</ice:form>
+       	
+       	<c:if test="#{not empty import.actionStatus}">
+       		<div class="progress">
+					<table><tr><td>
+						<div style="padding-bottom: 10px;">
+							<c:choose>
+								<c:when test="#{! empty import.actionStatus.error}">
+									<ice:outputLabel value="#{import.actionStatus.error}" styleClass="error"/>
+								</c:when>
+								<c:otherwise>
+									<ice:outputLabel value="#{import.actionStatus.message}"/>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<c:if test="#{!import.actionStatus.finished || import.actionStatus.progressable}">
+							<ice:outputProgress indeterminate="#{!import.actionStatus.progressable}" value="#{import.actionStatus.percent}" />
+						</c:if>
+					</td></tr></table>
+					<div style="padding-top: 10px; text-align: center; width: 100%">
+						<ice:commandButton disabled="#{!import.actionStatus.finished}" action="#{import.clear}" value="Reset" />
+					</div>
+				</div>
+       	</c:if>
+       	
+    </body>
+</html>
