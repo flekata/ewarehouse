@@ -4,7 +4,7 @@
              xmlns:ice="http://www.icesoft.com/icefaces/component"
              xmlns:c="http://java.sun.com/jstl/core"
              xmlns:ui="http://java.sun.com/jsf/facelets"
-             template="/WEB-INF/includes/genrep-templating/defaultTemplate1.jspx">
+             template="/WEB-INF/includes/genrep-templating/defaultTemplate.jspx">
     <ui:define name="page-content" >
         <genrep:formWraper id="Main"
                            bean="com.warehouse.beans.Content"

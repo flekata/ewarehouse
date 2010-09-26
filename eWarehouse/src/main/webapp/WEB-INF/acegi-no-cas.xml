@@ -64,11 +64,6 @@
         <sec:intercept-url pattern="/logout.html" filters="none"/>
         <sec:intercept-url pattern="/index.jsp" filters="none"/>
         <sec:intercept-url pattern="/login.jsp" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/login_bg.jpg" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/login_header.jpg" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/login_ok.jpg" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/login_ok_hover.jpg" filters="none"/>
-        <sec:intercept-url pattern="/genrep-resources/images/login_key.gif" filters="none"/>
         <sec:intercept-url pattern="/genrep-resources/css/login.css" filters="none"/>
         <sec:intercept-url pattern="/userRole" filters="none"/>
         <sec:intercept-url pattern="/**"

@@ -1,23 +1,21 @@
-
-<genrep:panelGrid
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:genrep="http://www.genrepsoft.com/jsf"
-    xmlns:ice="http://www.icesoft.com/icefaces/component"
-    xmlns:c="http://java.sun.com/jstl/core"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    columns="2">
+<genrep:panelGrid xmlns:h="http://java.sun.com/jsf/html"
+                  xmlns:f="http://java.sun.com/jsf/core"
+                  xmlns:genrep="http://www.genrepsoft.com/jsf"
+                  xmlns:ice="http://www.icesoft.com/icefaces/component"
+                  xmlns:c="http://java.sun.com/jstl/core"
+                  xmlns:ui="http://java.sun.com/jsf/facelets"
+                  columns="2">
     <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
     <genrep:panelGrid id="Inpuorgwarehouse" columns="4" >
         <genrep:combo id="warehouse12"
-            field="warehouse"
-            insertNull="#{false}"
-            method="get"
-            labelField="name"
-            submittable="#{false}"
-            refresh="#{true}"
-            catalogBean="#{clsfCatalog}"
-            params="com.warehouse.core.Warehouse"/>
+                      field="warehouse"
+                      insertNull="#{false}"
+                      method="get"
+                      labelField="name"
+                      submittable="#{false}"
+                      refresh="#{true}"
+                      catalogBean="#{clsfCatalog}"
+                      params="com.warehouse.core.Warehouse"/>
         <genrep:inputText id="newwarehouse" size="16"/>
         <genrep:button id="btnwarehouse" action="AddNewWarehouse" />
     </genrep:panelGrid>
@@ -27,12 +25,12 @@
     <genrep:outputLabel id="organizationorganization12" value="#{genrepmsgs['organization']}" />
     <genrep:panelGrid id="Inpuorganizationd" columns="4" >
         <genrep:combo id="name12"
-            field="organization"
-            method="get"
-            labelField="name"
-            catalogBean="#{clsfCatalog}"
-            params="com.warehouse.core.Organization"
-            refresh="#{true}"/>
+                      field="organization"
+                      method="get"
+                      labelField="name"
+                      catalogBean="#{clsfCatalog}"
+                      params="com.warehouse.core.Organization"
+                      refresh="#{true}"/>
         <genrep:inputText id="neworganization" size="16"/>
         <genrep:button id="btnorganization" action="AddNewOrganization" />
     </genrep:panelGrid>
@@ -48,12 +46,12 @@
     <genrep:outputLabel id="itemitem12" value="#{genrepmsgs['item']}" />
     <genrep:panelGrid id="Inputgr33d" columns="4" >
         <genrep:combo id="tem12"
-            field="item"
-            method="get"
-            labelField="name"
-            catalogBean="#{clsfCatalog}"
-            params="com.warehouse.core.Item"
-            refresh="#{true}"/>
+                      field="item"
+                      method="get"
+                      labelField="name"
+                      catalogBean="#{clsfCatalog}"
+                      params="com.warehouse.core.Item"
+                      refresh="#{true}"/>
         <genrep:inputText id="newitem" size="16"/>
         <genrep:button id="btnitem" action="AddNewItem" />
     </genrep:panelGrid>
