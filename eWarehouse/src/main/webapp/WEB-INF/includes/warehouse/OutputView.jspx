@@ -117,25 +117,25 @@
         <genrep:panelGrid id="Inputgrd" columns="2" width="400">
 
             <h2><genrep:outputLabel id="lblname1321" value="#{genrepmsgs['warehName']}" /></h2>
-            <h1><genrep:outputText id="lblcdd2fsf" rendered="#{form.containerBean.warehouse.name=!null}" value="#{form.containerBean.warehouse.name}" /></h1>
+            <h1><genrep:outputText id="lblcdd2fsf" rendered="#{form.containerBean.warehouse.name!=null}" value="#{form.containerBean.warehouse.name}" /></h1>
 
             <h2><genrep:outputLabel id="lbldate1322" value="#{genrepmsgs['date']}" /></h2>
-            <h1><genrep:outputText id="fsdd" rendered="#{form.containerBean.date=!null}" value="#{form.containerBean.date}" /></h1>
+            <h1><genrep:outputText id="fsdd" rendered="#{form.containerBean.date!=null}" value="#{form.containerBean.date}" /></h1>
 
             <h2><genrep:outputLabel id="lblorganization1323" value="#{genrepmsgs['individual']}" /></h2>
-            <h1><genrep:outputText id="fsd11d" rendered="#{form.containerBean.individual.name=!null}" value="#{form.containerBean.individual.name}" /></h1>
+            <h1><genrep:outputText id="fsd11d" rendered="#{form.containerBean.individual.name!=null}" value="#{form.containerBean.individual.name}" /></h1>
 
             <h2><genrep:outputLabel id="lbltype1324" value="#{genrepmsgs['orderCode']}" /></h2>
-            <h1><genrep:outputText id="fs34d116d" rendered="#{form.containerBean.orderCode=!null}" value="#{form.containerBean.orderCode}" /></h1>
+            <h1><genrep:outputText id="fs34d116d" rendered="#{form.containerBean.orderCode!=null}" value="#{form.containerBean.orderCode}" /></h1>
 
             <h2><genrep:outputLabel id="lblprice1325" value="#{genrepmsgs['note']}" /></h2>
-            <h1><genrep:outputText id="fs3415d11d" rendered="#{form.containerBean.note=!null}" value="#{form.containerBean.note}" refresh="#{true}"/></h1>
+            <h1><genrep:outputText id="fs3415d11d" rendered="#{form.containerBean.note!=null}" value="#{form.containerBean.note}" refresh="#{true}"/></h1>
 
             <h2><genrep:outputLabel id="lblitem1326" value="#{genrepmsgs['item']}" /></h2>
-            <h1><genrep:outputText id="fs3413311d" rendered="#{form.containerBean.item.name=!null}" value="#{form.containerBean.item.name}" /></h1>
+            <h1><genrep:outputText id="fs3413311d" rendered="#{form.containerBean.item.name!=null}" value="#{form.containerBean.item.name}" /></h1>
 
             <h2><genrep:outputLabel id="lblsize1327" value="#{genrepmsgs['size']}" /></h2>
-            <h1><genrep:outputText id="fs3412d11d" rendered="#{form.containerBean.size=!null}" value="#{form.containerBean.size}" /></h1>
+            <h1><genrep:outputText id="fs3412d11d" rendered="#{form.containerBean.size!=null}" value="#{form.containerBean.size}" /></h1>
         </genrep:panelGrid>
 
         <genrep:panelGrid id="nav1nav1" columns="3" styleClass="prv">
