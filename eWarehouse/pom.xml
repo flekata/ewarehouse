@@ -210,8 +210,16 @@
             <version>${hibernate-validator.version}</version>
         </dependency>
         
-
-       
+        <dependency>
+            <groupId>jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.8.0</version>
+        </dependency>
         <dependency>
             <groupId>com.genrep.icefaces</groupId>
             <artifactId>app-iceFaces</artifactId>

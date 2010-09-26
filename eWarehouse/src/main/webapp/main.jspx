@@ -46,14 +46,14 @@
                                      value="warehouse/OutputView.jspx"/>
                         </ice:menuItem>
                     </ice:menuItem>
-                    <!--   <ice:menuItem id="Report" actionListener="#{form.containerBean.primaryListener}"
+                       <ice:menuItem id="Report" actionListener="#{form.containerBean.primaryListener}"
                                   value="#{genrepmsgs['Report']}">
                         <ice:menuItem id="warehouse" actionListener="#{form.containerBean.primaryListener}"
                                       value="#{genrepmsgs['ReportItem']}">
                             <f:param name="myParam"
-                                     value="warehouse/ReportItem.jspx"/>
+                                     value="warehouse/Report.jspx"/>
                         </ice:menuItem>
-                    </ice:menuItem> -->
+                    </ice:menuItem>
                 </ice:menuBar>
             </div>
             <br/><br/>
