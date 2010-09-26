@@ -53,6 +53,11 @@
                             <f:param name="myParam"
                                      value="warehouse/Report.jspx"/>
                         </ice:menuItem>
+                        <ice:menuItem id="warehouse2" actionListener="#{form.containerBean.primaryListener}"
+                                      value="#{genrepmsgs['ReportItem2']}">
+                            <f:param name="myParam"
+                                     value="warehouse/Report2.jspx"/>
+                        </ice:menuItem>
                     </ice:menuItem>
                 </ice:menuBar>
             </div>

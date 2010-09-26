@@ -1,0 +1,34 @@
+<genrep:formWraper id="Input"
+                   xmlns:h="http://java.sun.com/jsf/html"
+                   xmlns:f="http://java.sun.com/jsf/core"
+                   xmlns:genrep="http://www.genrepsoft.com/jsf"
+                   xmlns:ice="http://www.icesoft.com/icefaces/component"
+                   xmlns:c="http://java.sun.com/jstl/core"
+                   xmlns:ui="http://java.sun.com/jsf/facelets"
+                   bean="com.warehouse.core.Input"
+                   catalogBean="#{codexCatalog}"
+                   enableState="#{false}">
+    <genrep:action name="rep1" class="com.warehouse.action.ReportAction1"
+                   params="date_dateFrom;inputText_dateTo">
+        <genrep:transit src="*" target="*"/>
+    </genrep:action>
+    <genrep:panelGrid columns="2">
+        <genrep:outputText value="#{genrepmsgs['from']}" />
+        <genrep:date id="dateFrom"/>
+
+        <genrep:outputText value="#{genrepmsgs['from']}" />
+        <genrep:inputText id="dateTo"/>
+
+        <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
+        <genrep:combo id="warehouse123"
+                      insertNull="#{false}"
+                      method="get"
+                      labelField="name"
+                      submittable="#{false}"
+                      refresh="#{true}"
+                      catalogBean="#{clsfCatalog}"
+                      params="com.warehouse.core.Warehouse"/>
+        <genrep:button id="buttonIDStateOfPublicDebt" action="rep1" image="images/pdf.png" value="#{genrepmsgs['rep1s']}"/>
+        </genrep:panelGrid>
+</genrep:formWraper>
+
