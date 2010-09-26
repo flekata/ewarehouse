@@ -24,7 +24,7 @@ public class WarehouseMethods {
         List<WarehouseTableColumns> list = new ArrayList<WarehouseTableColumns>();
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
 //        Warehouse wh = (Warehouse) cont.getContainerBean();
-        SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("selectOneListbox_name");
+        SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
         Warehouse wh = (Warehouse) lbox.getValueObject();
         if (wh != null) {
             String wrname = (String) wh.getName();
@@ -52,7 +52,7 @@ public class WarehouseMethods {
                 add = false;
             }
             if (objects[1] != null) {
-                wti.setSize(((Integer) objects[1]).toString());
+                wti.setSize(((Long) objects[1]).toString());
             } else {
                 add = false;
             }
