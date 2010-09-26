@@ -25,7 +25,6 @@ public class WarehouseMethods {
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
 //        Warehouse wh = (Warehouse) cont.getContainerBean();
         SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
-        if (lbox.getValueObject() != null) {
             Warehouse wh = (Warehouse) lbox.getValueObject();
             if (wh != null) {
                 String wrname = (String) wh.getName();
@@ -37,7 +36,6 @@ public class WarehouseMethods {
 
                 list = balance(makeListFromObj(inputList), makeListFromObj(outputList));
             }
-        }
         return list;
     }
 
