@@ -54,7 +54,6 @@
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value>
-            /WEB-INF/faces-config-navigation.xml
             /WEB-INF/faces-config.xml
         </param-value>
     </context-param>
@@ -193,11 +192,6 @@
             com.genrep.application.view.bean.component.progressBar.OutputProgressController
         </listener-class>
     </listener>
-    <!-- Source Code reader servlet-->
-    <servlet>
-        <servlet-name>SourceCode Reader</servlet-name>
-        <servlet-class>com.genrep.application.util.SourceCodeLoaderServlet</servlet-class>
-    </servlet>
     <!-- file upload Servlet -->
     <servlet>
         <servlet-name>uploadServlet</servlet-name>
@@ -238,17 +232,7 @@
         <servlet-name>Blocking Servlet</servlet-name>
         <url-pattern>/block/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SourceCode Reader</servlet-name>
-        <url-pattern>/sourcecodeStream.html</url-pattern>
-    </servlet-mapping>
     <!-- Facelets & IceFaces -->
-    <!-- Spring App Platform
-    <context-param>
-        <param-name>contextClass</param-name>
-        <param-value>com.springsource.platform.web.dm.PlatformOsgiBundleXmlWebApplicationContext</param-value>
-    </context-param>
-    -->
     <servlet>
         <servlet-name>userRole</servlet-name>
         <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
@@ -269,7 +253,6 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath*:/META-INF/spring/codexservice.xml,
             /WEB-INF/genrepProject-servlet.xml
         </param-value>
     </context-param>

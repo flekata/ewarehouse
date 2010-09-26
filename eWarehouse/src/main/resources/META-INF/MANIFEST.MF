@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: eDept OSGi War
-Bundle-SymbolicName: com.genrep.osgi.edept
-Import-Package: javax.servlet,javax.servlet.http,javax.servlet.resources,com.extensiblejava.hello.service
-Import-Library: org.springframework.spring;version="[2.5.5.A, 2.5.5.A]"
-Import-Bundle: org.springframework.osgi.core,com.springsource.javax.faces;version="1.2.0.08",com.springsource.com.sun.faces;version="1.2.0.08"

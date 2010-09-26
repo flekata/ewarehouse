@@ -13,43 +13,12 @@
             <default-locale>en_US</default-locale>
             <supported-locale>en_US</supported-locale>
             <supported-locale>mk_MK</supported-locale>
-            <supported-locale>sr_RS</supported-locale>
         </locale-config>
     </application>
+
     <managed-bean>
-        <description>
-        </description>
-        <managed-bean-name>applicationBuilder</managed-bean-name>
-        <managed-bean-class>
-            com.genrep.application.view.builder.ApplicationBuilder
-        </managed-bean-class>
-        <managed-bean-scope>application</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <description>
-        </description>
-        <managed-bean-name>applicationController</managed-bean-name>
-        <managed-bean-class>
-            com.genrep.application.view.bean.ApplicationController
-        </managed-bean-class>
-        <managed-bean-scope>application</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <description>
-        </description>
-        <managed-bean-name>applicationModel</managed-bean-name>
-        <managed-bean-class>
-            com.genrep.application.view.bean.ApplicationSessionModel
-        </managed-bean-class>
+        <managed-bean-name>import</managed-bean-name>
+        <managed-bean-class>com.genrep.eRegistration.services.UserImport</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
-        <managed-property>
-            <property-name>currentNode</property-name>
-            <value>#{applicationBuilder.defaultNode}</value>
-        </managed-property>
     </managed-bean>
-	<managed-bean>
-		<managed-bean-name>import</managed-bean-name>
-		<managed-bean-class>com.genrep.eRegistration.services.UserImport</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
 </faces-config>

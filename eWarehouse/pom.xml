@@ -69,20 +69,6 @@
             </exclusions>
         </dependency>
 
-        <!-- start bundles -->
-<!--        <dependency>
-            <groupId>com.genrep.services</groupId>
-            <artifactId>codex-services</artifactId>
-            <version>1.0-UI-Model</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.el</groupId>
-                    <artifactId>el-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-        <!-- end bundles -->
-
         <!-- Cas Acegi -->
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -260,11 +246,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--dependency>
-            <groupId>com.genrep.toolbox</groupId>
-            <artifactId>toolbox-annotations</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency-->
         <dependency>
             <groupId>com.genrep.model</groupId>
             <artifactId>app-model-jsf</artifactId>
