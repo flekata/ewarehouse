@@ -14,10 +14,10 @@
     </genrep:action>
     <genrep:panelGrid columns="2">
         <genrep:outputText value="#{genrepmsgs['from']}" />
-        <genrep:date id="dateFrom"/>
+        <genrep:date id="dateFrom" valueType="java.util.Date" />
 
         <genrep:outputText value="#{genrepmsgs['from']}" />
-        <genrep:date id="dateTo"/>
+        <genrep:date id="dateTo" valueType="java.util.Date" />
 
         <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
         <genrep:combo id="warehouse123"
