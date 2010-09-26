@@ -1,0 +1,42 @@
+<genrep:formWraper id="Warehouse"
+                   xmlns:h="http://java.sun.com/jsf/html"
+                   xmlns:f="http://java.sun.com/jsf/core"
+                   xmlns:genrep="http://www.genrepsoft.com/jsf"
+                   xmlns:ice="http://www.icesoft.com/icefaces/component"
+                   xmlns:c="http://java.sun.com/jstl/core"
+                   xmlns:ui="http://java.sun.com/jsf/facelets"
+                   bean="com.warehouse.core.Warehouse"
+                   catalogBean="#{clsfCatalog}"
+                   enableState="#{false}">
+    <genrep:action name="save" class="com.genrep.action.Save">
+        <genrep:transit src="*" target="*"/>
+    </genrep:action>
+    <genrep:panelGrid id="grmag" columns="3">
+        <genrep:outputLabel id="lblname1" value="#{genrepmsgs['warehNameCh']}" />
+        <genrep:selectOneListbox id="name"
+                      field="name"
+                      insertNull="#{false}"
+                      method="get"
+                      catalogBean="#{clsfCatalog}"
+                      labelField="name"
+                      params="com.warehouse.core.Warehouse"
+                      refresh="#{true}"/>
+        <genrep:panelCollapsible id="newmag" title="Нов">
+            <genrep:outputLabel id="lblname" value="#{genrepmsgs['warehName']}" />
+            <genrep:inputText id="name2" field="name" size="10"/>
+            <genrep:button id="sav" action="save" value="#{genrepmsgs['Save']}" image="/images/save.png" />
+            <br/> <br/>
+        </genrep:panelCollapsible>
+    </genrep:panelGrid>
+
+      <genrep:table id="Warehouse_Table"
+                  caption="WarehouseTable"
+                  tableClass="com.warehouse.beans.WarehouseTableColumns"
+                  columnFields="itemName;size"
+                  refresh="#{true}"
+                  params=".container"
+                  method="getWarehauses">
+        <genrep:columns/>
+    </genrep:table>
+</genrep:formWraper>
+

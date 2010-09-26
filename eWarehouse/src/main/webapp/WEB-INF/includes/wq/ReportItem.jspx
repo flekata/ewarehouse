@@ -1,0 +1,41 @@
+<genrep:formWraper id="ReportItem"
+                   xmlns:h="http://java.sun.com/jsf/html"
+                   xmlns:f="http://java.sun.com/jsf/core"
+                   xmlns:genrep="http://www.genrepsoft.com/jsf"
+                   xmlns:ice="http://www.icesoft.com/icefaces/component"
+                   xmlns:c="http://java.sun.com/jstl/core"
+                   xmlns:ui="http://java.sun.com/jsf/facelets"
+                   bean="com.warehouse.beans.ReportItem"
+                   catalogBean="#{codexCatalog}"
+                   enableState="#{false}">
+    <h2>Извештај по артикли</h2>
+    <genrep:panelGrid id="ReportItemgrd" columns="4" >
+
+    <genrep:outputLabel id="itemitem12" value="#{genrepmsgs['item']}" />
+        <genrep:combo id="tem12"
+                      field="item"
+                      method="get"
+                      insertNull="#{false}"
+                      labelField="name"
+                      catalogBean="#{clsCatalog}"
+                      params="com.warehouse.core.Item"
+                      refresh="#{true}"/>
+
+    <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
+        <genrep:combo id="warehouse12"
+                      field="warehouse"
+                      method="get"
+                      labelField="name"
+                      catalogBean="#{clsCatalog}"
+                      params="com.warehouse.core.Warehouse"
+                      refresh="#{true}"/>
+
+    <genrep:outputLabel id="lblname12etpr" value="#{genrepmsgs['warehName']}" />
+        <genrep:combo id="typee"
+                      field="type"
+                      insertNull="#{false}"
+                      method="getTypes"
+                      refresh="#{true}"/>
+    </genrep:panelGrid>
+</genrep:formWraper>
+
