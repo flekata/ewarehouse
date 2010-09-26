@@ -16,9 +16,4 @@
         </locale-config>
     </application>
 
-    <managed-bean>
-        <managed-bean-name>import</managed-bean-name>
-        <managed-bean-class>com.genrep.eRegistration.services.UserImport</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
 </faces-config>

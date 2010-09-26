@@ -10,8 +10,8 @@
     <property column="price" name="price"/>
     <property column="size" name="size"/>
     <property column="note" name="note"/>
-    <many-to-one class="com.warehouse.core.Item" name="item" column="ITMM" />
-    <many-to-one class="com.warehouse.core.Organization" name="organization" column="ORGG" />
-    <many-to-one class="com.warehouse.core.Warehouse" name="warehouse" column="WRHS" />
+    <many-to-one class="com.warehouse.core.Item" column="ITMM" name="item"/>
+    <many-to-one class="com.warehouse.core.Organization" column="ORGG" name="organization"/>
+    <many-to-one class="com.warehouse.core.Warehouse" column="WRHS" name="warehouse"/>
   </class>
 </hibernate-mapping>

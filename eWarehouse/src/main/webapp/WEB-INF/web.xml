@@ -187,11 +187,6 @@
             com.genrep.application.view.bean.component.inputFile.InputFileSessionCleaner
         </listener-class>
     </listener>
-    <listener>
-        <listener-class>
-            com.genrep.application.view.bean.component.progressBar.OutputProgressController
-        </listener-class>
-    </listener>
     <!-- file upload Servlet -->
     <servlet>
         <servlet-name>uploadServlet</servlet-name>
@@ -232,23 +227,7 @@
         <servlet-name>Blocking Servlet</servlet-name>
         <url-pattern>/block/*</url-pattern>
     </servlet-mapping>
-    <!-- Facelets & IceFaces -->
-    <servlet>
-        <servlet-name>userRole</servlet-name>
-        <servlet-class>com.caucho.hessian.server.HessianServlet</servlet-class>
-        <init-param>
-            <param-name>home-class</param-name>
-            <param-value>com.genrep.eRegistration.services.ERegistrationServiceImpl</param-value>
-        </init-param>
-        <init-param>
-            <param-name>home-api</param-name>
-            <param-value>com.genrep.container.service.registration.IRegistrationService</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>userRole</servlet-name>
-        <url-pattern>/userRole</url-pattern>
-    </servlet-mapping>
+    
     <!-- non-Osgi platform -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -263,13 +242,5 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
-    <!--<servlet>
-        <servlet-name>genrepProject</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>genrepProject</servlet-name>
-        <url-pattern>/example/*</url-pattern>
-    </servlet-mapping>-->
+    
 </web-app>

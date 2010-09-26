@@ -6,7 +6,7 @@ package com.genrep.service.reader;
 
 import com.genrep.codex.procedure.ClassificationProcedure;
 import com.genrep.codex.service.ICodexService;
-import com.genrep.eRegistration.app.ERegistrationApp;
+import com.genrep.warehouse.app.EWarehouseApp;
 import com.genrep.system.service.AppSystem;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public abstract class AServiceReader {
 
     public List get(String codexEntity) {
         try {
-            return findAllByClassName(ERegistrationApp.class.getName(), codexEntity);
+            return findAllByClassName(EWarehouseApp.class.getName(), codexEntity);
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;

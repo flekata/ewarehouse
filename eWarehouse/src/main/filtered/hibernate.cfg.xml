@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-         <!-- Derby    -->
-        <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.use_outer_join">false</property>
-        <property name="jta.UserTransaction">java:comp/UserTransaction</property>
-        <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-        <property name="hibernate.connection.url">jdbc:derby://localhost:1527/warehouse;create=true</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">nomis11s</property>
-        <property name="hibernate.show.sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">update</property>
-        
-        <mapping resource="warehouse/Individual.hbm.xml" />
-        <mapping resource="warehouse/Input.hbm.xml" />
-        <mapping resource="warehouse/Item.hbm.xml" />
-        <mapping resource="warehouse/Organization.hbm.xml" />
-        <mapping resource="warehouse/Output.hbm.xml" />
-        <mapping resource="warehouse/Warehouse.hbm.xml" />
-
-        <mapping resource="warehouse/Menu.hbm.xml" />
-    </session-factory>
+  <session-factory>
+    <!-- Derby    -->
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.use_outer_join">false</property>
+    <property name="jta.UserTransaction">java:comp/UserTransaction</property>
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/warehouse;create=true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">nomis11s</property>
+    <property name="hibernate.show.sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="warehouse/Individual.hbm.xml"/>
+    <mapping resource="warehouse/Input.hbm.xml"/>
+    <mapping resource="warehouse/Item.hbm.xml"/>
+    <mapping resource="warehouse/Organization.hbm.xml"/>
+    <mapping resource="warehouse/Output.hbm.xml"/>
+    <mapping resource="warehouse/Warehouse.hbm.xml"/>
+    <mapping resource="warehouse/Menu.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

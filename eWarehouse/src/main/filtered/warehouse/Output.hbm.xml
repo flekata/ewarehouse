@@ -9,8 +9,8 @@
     <property column="orderCode" name="orderCode"/>
     <property column="note" name="note"/>
     <property column="size" name="size"/>
-    <many-to-one class="com.warehouse.core.Item" name="item" column="ITMM" />
-    <many-to-one class="com.warehouse.core.Individual" name="individual" column="ORGG" />
-    <many-to-one class="com.warehouse.core.Warehouse" name="warehouse" column="WRHS" />
+    <many-to-one class="com.warehouse.core.Item" column="ITMM" name="item"/>
+    <many-to-one class="com.warehouse.core.Individual" column="ORGG" name="individual"/>
+    <many-to-one class="com.warehouse.core.Warehouse" column="WRHS" name="warehouse"/>
   </class>
 </hibernate-mapping>
