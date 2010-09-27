@@ -1,38 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SostojbaNaJavenDolg" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rep1" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="OD" class="java.util.Date"/>
+	<parameter name="DO" class="java.util.Date"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
-	</parameter>
-	<parameter name="DATE" class="java.util.Date">
-		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
-	</parameter>
-	<parameter name="RATE" class="java.math.BigDecimal">
-		<defaultValueExpression><![CDATA[new BigDecimal("1.0000")]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select NAME from WAREHOUSE.WARH]]>
 	</queryString>
 	<field name="NAME" class="java.lang.String"/>
-	<sortField name="LOAN_REG_DEPTS" order="Descending"/>
-	<sortField name="ROOT_TYPE"/>
-	<sortField name="SUPER_TYPE"/>
-	<sortField name="TYPE"/>
 	<background>
-		<band/>
+		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="101"/>
+		<band height="60" splitType="Prevent">
+			<staticText>
+				<reportElement x="143" y="15" width="222" height="20"/>
+				<textElement>
+					<font size="15" isBold="true" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[Дневен рекапитулар]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band/>
+		<band splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="54"/>
+		<band splitType="Stretch"/>
 	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
 	<summary>
-		<band/>
+		<band height="130" splitType="Stretch">
+			<subreport runToBottom="true">
+				<reportElement isPrintRepeatedValues="false" x="0" y="65" width="802" height="60"/>
+				<subreportParameter name="DO">
+					<subreportParameterExpression><![CDATA[$P{DO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="OD">
+					<subreportParameterExpression><![CDATA[$P{OD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "report1_subreport2.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport runToBottom="false">
+				<reportElement isPrintRepeatedValues="false" x="1" y="2" width="802" height="60"/>
+				<subreportParameter name="DO">
+					<subreportParameterExpression><![CDATA[$P{DO}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="OD">
+					<subreportParameterExpression><![CDATA[$P{OD}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "report1_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</summary>
 </jasperReport>

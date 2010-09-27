@@ -210,9 +210,9 @@
             <version>${hibernate-validator.version}</version>
         </dependency>
         <dependency>
-            <groupId>net.sf.jasperreports</groupId>
+            <groupId>jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>3.7.2</version>
+            <version>3.5.3</version>
         </dependency>
         <dependency>
             <groupId>commons-beanutils</groupId>
