@@ -12,23 +12,40 @@
                    params="date_dateFrom;date_dateTo">
         <genrep:transit src="*" target="*"/>
     </genrep:action>
-    <genrep:panelGrid columns="2">
-        <genrep:outputText value="#{genrepmsgs['from']}" />
-        <genrep:date id="dateFrom" valueType="java.util.Date" />
+    <genrep:action name="rep2" class="com.warehouse.action.ReportAction1"
+                   params="date_to;combo_war">
+        <genrep:transit src="*" target="*"/>
+    </genrep:action>
+    <div style="border:1px solid rgb(170, 170, 255); padding: 10px;">
+        <h2>Извештај влез/излез во датумски опсег</h2>
+        <genrep:panelGrid columns="2">
+            <genrep:outputText value="#{genrepmsgs['from']}" />
+            <genrep:date id="dateFrom" valueType="java.util.Date" />
 
-        <genrep:outputText value="#{genrepmsgs['from']}" />
-        <genrep:date id="dateTo" valueType="java.util.Date" />
-
-        <genrep:outputLabel id="lblname12" value="#{genrepmsgs['warehName']}" />
-        <genrep:combo id="warehouse123"
-                      insertNull="#{false}"
-                      method="get"
-                      labelField="name"
-                      submittable="#{false}"
-                      refresh="#{true}"
-                      catalogBean="#{clsfCatalog}"
-                      params="com.warehouse.core.Warehouse"/>
-        <genrep:button id="buttonIDStateOfPublicDebt" action="rep1" image="images/pdf.png" value="#{genrepmsgs['rep1s']}"/>
+            <genrep:outputText value="#{genrepmsgs['to']}" />
+            <genrep:date id="dateTo" valueType="java.util.Date" />
+            <genrep:button id="rep1" action="rep1" image="images/pdf.png" value="#{genrepmsgs['rep1']}"/>
         </genrep:panelGrid>
+    </div>
+    <br/><br/>
+    <div style="border:1px solid rgb(170, 170, 255); padding: 10px;">
+        <h2>Извештај за состојба во магацин до датум</h2>
+        <genrep:panelGrid columns="2">
+            <genrep:outputText value="#{genrepmsgs['to']}" />
+            <genrep:date id="to"/>
+
+
+            <genrep:outputLabel id="lblname112" value="#{genrepmsgs['warehName']}" />
+            <genrep:combo id="war"
+                          insertNull="#{false}"
+                          method="get"
+                          labelField="name"
+                          submittable="#{false}"
+                          refresh="#{true}"
+                          catalogBean="#{clsfCatalog}"
+                          params="com.warehouse.core.Warehouse"/>
+            <genrep:button id="rep2" action="rep2" image="images/pdf.png" value="#{genrepmsgs['rep2']}"/>
+        </genrep:panelGrid>
+    </div>
 </genrep:formWraper>
 

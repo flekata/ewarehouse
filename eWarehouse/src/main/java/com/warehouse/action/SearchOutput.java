@@ -54,10 +54,10 @@ public class SearchOutput extends AAction {
         Date datecd = null;
         Table table = (Table) getParams()[4];
 
-        Text indtx = (Text) getParams()[5];
+        Combo indtx = (Combo) getParams()[5];
         Individual individual = (Individual) indtx.getValueObject();
         String individualname = null;
-        if (individualname != null) {
+        if (individual != null) {
             individualname = (String) individual.getName();
         }
         WarehouseOperationSet proc = new WarehouseOperationSet(AppFactory.getCurrentApplication().getName(), "codexSession");

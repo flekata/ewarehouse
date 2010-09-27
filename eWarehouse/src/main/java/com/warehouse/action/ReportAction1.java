@@ -4,6 +4,7 @@
  */
 package com.warehouse.action;
 
+import com.genrep.guimodel.gui.comp.combo.Combo;
 import com.genrep.guimodel.gui.comp.date.DateComp;
 import com.genrep.guimodel.gui.comp.text.Text;
 import java.util.Date;
@@ -31,7 +32,7 @@ public class ReportAction1 extends JasperPrintAction {
         Map m = new HashMap();
         Object[] params = getParams();
         DateComp datod = (DateComp) params[0];
-        Text datdo = (Text) params[1];
+        Combo  datdo = (Combo) params[1];
         Date datod1 = (Date) datod.getValueObject();
         String datdo1 = (String) datdo.getValueObject();
         m.put("DATE", datod1);

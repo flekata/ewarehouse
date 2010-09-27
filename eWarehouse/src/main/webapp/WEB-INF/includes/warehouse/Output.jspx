@@ -23,10 +23,18 @@
                    params="inputText_newwarehouse22;combo_name22">
         <genrep:transit src="*" target="*"/>
     </genrep:action>
+    <genrep:action class="com.genrep.action.Cancel"
+                   name="Cancelnew">
+        <genrep:transit src="*" target="new" />
+    </genrep:action>
     <h2>ИЗЛЕЗ</h2>
     <ui:include src="/WEB-INF/includes/warehouse/OutputFields.jspx" />
-        <genrep:buttonsWriter id="btwrOutput" for_id="Output" exclude="Publish;Unpublish;Search:ShowAll;Info;New"/>
-   <!-- <genrep:table id="Output_Table"
+    <genrep:buttonsWriter id="btwrOutput" for_id="Output" exclude="Publish;Unpublish;Search:ShowAll;Info;New;Cancel">
+        <genrep:button id="Cancelv" image="/images/cancel.png"
+                       action="Cancelnew"
+                       value="#{genrepmsgs['Cancel']}" />
+    </genrep:buttonsWriter>
+    <!-- <genrep:table id="Output_Table"
                   tableClass="com.warehouse.core.Output"
                   columnFields="date">
         <genrep:rowSelector id="SelectedID" action="SelectIPfromTable" />

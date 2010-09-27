@@ -35,7 +35,7 @@
                   columnFields="itemName;size"
                   refresh="#{true}"
                   params=".container"
-                  method="getWarehauses">
+                  method="getWarehausesFromSql">
         <genrep:columns/>
     </genrep:table>
 </genrep:formWraper>

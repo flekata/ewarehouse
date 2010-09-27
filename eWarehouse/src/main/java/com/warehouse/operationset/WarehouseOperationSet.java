@@ -10,6 +10,8 @@ import com.genrep.operationset.service.exception.OperationSetException;
 import com.genrep.session.service.query.ICriteria;
 import com.genrep.session.service.query.IExpression;
 import com.genrep.session.service.query.IProjections;
+import com.genrep.session.service.query.IQuery;
+import com.genrep.session.service.query.ISqlQuery;
 import com.warehouse.core.Input;
 import com.warehouse.core.Output;
 import java.math.BigDecimal;
@@ -24,6 +26,26 @@ public class WarehouseOperationSet extends AOperationSet {
 
     public WarehouseOperationSet(String appClassName, String sessionName) {
         super(appClassName, sessionName);
+    }
+
+    public List getWarehausesBalance(String wrhName) {
+        try {
+            ISqlQuery query;
+            query = getOpSession().createSQLQuery("select sum(neso.size1) as siz, "
+                    + "neso.war, neso.itm "
+                    + "from ( "
+                    + "select WAREHOUSE.INPU.SIZE as size1, WAREHOUSE.WARH.NAME as war, WAREHOUSE.ITM.NAME as itm "
+                    + "from WAREHOUSE.INPU join WAREHOUSE.WARH on WAREHOUSE.WARH.UID=WAREHOUSE.INPU.WRHS join WAREHOUSE.ITM "
+                    + "on WAREHOUSE.ITM.UID=WAREHOUSE.INPU.ITMM WHERE WAREHOUSE.WARH.NAME='" + wrhName + "' "
+                    + "union select -WAREHOUSE.OUTPU.SIZE as size1, WAREHOUSE.WARH.NAME as war, WAREHOUSE.ITM.NAME as itm "
+                    + "from WAREHOUSE.OUTPU join WAREHOUSE.WARH on WAREHOUSE.WARH.UID=WAREHOUSE.OUTPU.WRHS join WAREHOUSE.ITM on WAREHOUSE.ITM.UID=WAREHOUSE.OUTPU.ITMM "
+                    + "WHERE WAREHOUSE.WARH.NAME='" + wrhName + "' ) as neso group by neso.war, neso.itm");
+
+            return query.list();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     public List getWarehausesInput(String wrhName) {
@@ -99,7 +121,8 @@ public class WarehouseOperationSet extends AOperationSet {
             return null;
         }
     }
-    public List findOutput(String itemName, String whname, Integer size, String orderCode, Date date,String individualname) {
+
+    public List findOutput(String itemName, String whname, Integer size, String orderCode, Date date, String individualname) {
         try {
             ICriteria criteria = getOpSession().createCriteria(Output.class);
             IExpression expression = criteria.createExpression();
@@ -131,6 +154,7 @@ public class WarehouseOperationSet extends AOperationSet {
             return null;
         }
     }
+
     @ModifyMethod(modificationName = "deleteObject", modificationType = ModifyMethod.ModificationType.DELETE, modificationResult = ModifyMethod.ModificationResult.COLLECTION)
     public void deleteObject(Object o, boolean non_transactional)
             throws OperationSetException {

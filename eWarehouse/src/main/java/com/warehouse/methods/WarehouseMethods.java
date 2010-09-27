@@ -20,22 +20,37 @@ import java.util.List;
  */
 public class WarehouseMethods {
 
+    public List getWarehausesFromSql(AGUIContainer container) {
+        List<WarehouseTableColumns> list = new ArrayList<WarehouseTableColumns>();
+        AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
+        SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
+        Warehouse wh = (Warehouse) lbox.getValueObject();
+        if (wh != null) {
+            String wrname = (String) wh.getName();
+            List inputList = null;
+            List outputList = null;
+            WarehouseProcedure proc = new WarehouseProcedure(AppFactory.getCurrentApplication().getName(), "codexSession");
+            list = makeListFromObj(proc.getWarehausesBalance(wrname));
+        }
+        return list;
+    }
+
     public List getWarehauses(AGUIContainer container) {
         List<WarehouseTableColumns> list = new ArrayList<WarehouseTableColumns>();
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
 //        Warehouse wh = (Warehouse) cont.getContainerBean();
         SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
-            Warehouse wh = (Warehouse) lbox.getValueObject();
-            if (wh != null) {
-                String wrname = (String) wh.getName();
-                List inputList = null;
-                List outputList = null;
-                WarehouseProcedure proc = new WarehouseProcedure(AppFactory.getCurrentApplication().getName(), "codexSession");
-                inputList = proc.getWarehausesInput(wrname);
-                outputList = proc.getWarehausesOutput(wrname);
+        Warehouse wh = (Warehouse) lbox.getValueObject();
+        if (wh != null) {
+            String wrname = (String) wh.getName();
+            List inputList = null;
+            List outputList = null;
+            WarehouseProcedure proc = new WarehouseProcedure(AppFactory.getCurrentApplication().getName(), "codexSession");
+            inputList = proc.getWarehausesInput(wrname);
+            outputList = proc.getWarehausesOutput(wrname);
 
-                list = balance(makeListFromObj(inputList), makeListFromObj(outputList));
-            }
+            list = balance(makeListFromObj(inputList), makeListFromObj(outputList));
+        }
         return list;
     }
 
@@ -45,13 +60,13 @@ public class WarehouseMethods {
             boolean add = true;
             WarehouseTableColumns wti = new WarehouseTableColumns();
             Object[] objects = (Object[]) list.get(i);
-            if (objects[0] != null) {
-                wti.setItemName((String) objects[0]);
+            if (objects[2] != null) {
+                wti.setItemName(((String) objects[2]).toString());
             } else {
                 add = false;
             }
-            if (objects[1] != null) {
-                wti.setSize(((Long) objects[1]).toString());
+            if (objects[0] != null) {
+                wti.setSize(((Integer) objects[0]).toString());
             } else {
                 add = false;
             }

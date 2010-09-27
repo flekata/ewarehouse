@@ -65,7 +65,12 @@
                           refresh="#{true}"/>
 
             <genrep:outputLabel id="ind12ss1" value="#{genrepmsgs['individual']}" />
-            <genrep:inputText id="ind12ss" />
+            <genrep:combo id="ind12ss"
+                          method="get"
+                          labelField="name"
+                          refresh="#{true}"
+                          catalogBean="#{clsfCatalog}"
+                          params="com.warehouse.core.Individual"/>
 
             <genrep:outputLabel id="size12ss1" value="#{genrepmsgs['size']}" />
             <genrep:inputText id="size12ss" />
@@ -113,7 +118,6 @@
             </genrep:panelGrid>
         </f:facet>
 
-11111111111
         <genrep:panelGrid id="Inputgrd" columns="2" width="400">
 
             <h2><genrep:outputLabel id="lblname1321" value="#{genrepmsgs['warehName']}" /></h2>

@@ -88,6 +88,10 @@
                             class="com.warehouse.methods.WarehouseMethods" 
                             method="getWarehauses" 
                             params="com.genrep.guimodel.service.gui.comp.AGUIContainer" />
+        <genrepns:methods alias="getWarehausesFromSql"
+                            class="com.warehouse.methods.WarehouseMethods"
+                            method="getWarehausesFromSql"
+                            params="com.genrep.guimodel.service.gui.comp.AGUIContainer" />
         <genrepns:methods alias="getClassifications"
                           class="com.genrep.service.reader.WarehouseServiceReader"
                           method="getClassifications"
