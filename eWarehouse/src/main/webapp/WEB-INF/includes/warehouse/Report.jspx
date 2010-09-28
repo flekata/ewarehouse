@@ -32,7 +32,7 @@
         <h2>Извештај за состојба во магацин до датум</h2>
         <genrep:panelGrid columns="2">
             <genrep:outputText value="#{genrepmsgs['to']}" />
-            <genrep:date id="to"/>
+            <genrep:date id="to" valueType="java.util.Date"/>
 
 
             <genrep:outputLabel id="lblname112" value="#{genrepmsgs['warehName']}" />
@@ -42,6 +42,7 @@
                           labelField="name"
                           submittable="#{false}"
                           refresh="#{true}"
+                          field="warehouse"
                           catalogBean="#{clsfCatalog}"
                           params="com.warehouse.core.Warehouse"/>
             <genrep:button id="rep2" action="rep2" image="images/pdf.png" value="#{genrepmsgs['rep2']}"/>

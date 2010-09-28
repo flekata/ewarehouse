@@ -3,8 +3,12 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="OD" class="java.util.Date"/>
-	<parameter name="DO" class="java.util.Date"/>
+	<parameter name="OD" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DO" class="java.util.Date">
+		<defaultValueExpression><![CDATA[new Date()]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[select  WAREHOUSE.INPU.DATE,
 WAREHOUSE.INPU.TYPE,
@@ -50,7 +54,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<reportElement x="0" y="0" width="100" height="20"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Датум]]></text>
 				</staticText>
@@ -62,7 +66,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Забелешка]]></text>
 				</staticText>
@@ -74,7 +78,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Количина]]></text>
 				</staticText>
@@ -86,7 +90,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Фирма]]></text>
 				</staticText>
@@ -98,7 +102,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Цена]]></text>
 				</staticText>
@@ -110,7 +114,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Набавил]]></text>
 				</staticText>
@@ -122,7 +126,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Артикал]]></text>
 				</staticText>
@@ -135,7 +139,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Магацин]]></text>
 				</staticText>
@@ -149,10 +153,10 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 		<groupFooter>
 			<band height="20">
 				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="100" height="20"/>
+					<reportElement mode="Transparent" x="0" y="0" width="100" height="20"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font fontName="Arial" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Вкупно]]></text>
 				</staticText>
@@ -184,7 +188,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<reportElement x="300" y="0" width="100" height="20" forecolor="#FFFFFF"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="14" isBold="true" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
+						<font size="14" isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[ВЛЕЗ]]></text>
 				</staticText>

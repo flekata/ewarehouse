@@ -38,4 +38,16 @@
                 <netbeans.deploy>true</netbeans.deploy>
             </properties>
         </action>
+        <action>
+            <actionName>CUSTOM-offline</actionName>
+            <displayName>offline</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+                <goal>--offline</goal>
+            </goals>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </action>
     </actions>

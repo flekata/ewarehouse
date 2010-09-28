@@ -35,6 +35,9 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 	<field name="ITM" class="java.lang.String"/>
 	<sortField name="WAR"/>
 	<sortField name="DATE"/>
+	<variable name="sumsize" class="java.lang.Integer" resetType="Group" resetGroup="DATE" calculation="Sum">
+		<variableExpression><![CDATA[$F{SIZE}]]></variableExpression>
+	</variable>
 	<group name="DATE">
 		<groupExpression><![CDATA[$F{DATE}]]></groupExpression>
 		<groupHeader>
@@ -50,7 +53,9 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+					</textElement>
 					<text><![CDATA[Датум]]></text>
 				</staticText>
 				<staticText>
@@ -61,7 +66,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Забелешка]]></text>
 				</staticText>
@@ -73,7 +78,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Количина]]></text>
 				</staticText>
@@ -85,7 +90,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Земал]]></text>
 				</staticText>
@@ -97,7 +102,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Име на налог]]></text>
 				</staticText>
@@ -109,7 +114,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Артикал]]></text>
 				</staticText>
@@ -122,7 +127,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 						<rightPen lineWidth="0.25" lineStyle="Solid"/>
 					</box>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font isPdfEmbedded="true"/>
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[Магацин]]></text>
 				</staticText>
@@ -133,6 +138,31 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				</textField>
 			</band>
 		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement mode="Transparent" x="400" y="0" width="100" height="20"/>
+					<box rightPadding="3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.Integer"><![CDATA[$V{sumsize}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="20"/>
+					<box leftPadding="0">
+						<topPen lineWidth="0.25" lineStyle="Solid"/>
+						<leftPen lineWidth="0.25" lineStyle="Solid"/>
+						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
+						<rightPen lineWidth="0.25" lineStyle="Solid"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
+					</textElement>
+					<text><![CDATA[Вкупно]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
 	</group>
 	<background>
 		<band splitType="Stretch"/>
@@ -145,7 +175,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 					<reportElement x="300" y="0" width="100" height="20" forecolor="#FFFFFF"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font size="14" isBold="true" isPdfEmbedded="true"/>
+						<font size="14" isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
 					<text><![CDATA[ИЗЛЕЗ]]></text>
 				</staticText>
