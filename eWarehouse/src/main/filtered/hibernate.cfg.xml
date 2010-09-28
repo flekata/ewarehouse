@@ -12,7 +12,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">nomis11s</property>
     <property name="hibernate.show.sql">true</property>
-<!--    <property name="hibernate.hbm2ddl.auto">update</property>-->
+    <property name="hibernate.hbm2ddl.auto">update</property>
 
     <mapping resource="warehouse/Individual.hbm.xml"/>
     <mapping resource="warehouse/Input.hbm.xml"/>
