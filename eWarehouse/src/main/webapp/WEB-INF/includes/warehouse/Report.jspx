@@ -31,10 +31,10 @@
     <div style="border:1px solid rgb(170, 170, 255); padding: 10px;">
         <h2>Извештај за состојба во магацин до датум</h2>
         <genrep:panelGrid columns="2">
+            
             <genrep:outputText value="#{genrepmsgs['to']}" />
             <genrep:date id="to" valueType="java.util.Date"/>
-
-
+            
             <genrep:outputLabel id="lblname112" value="#{genrepmsgs['warehName']}" />
             <genrep:combo id="war"
                           insertNull="#{false}"

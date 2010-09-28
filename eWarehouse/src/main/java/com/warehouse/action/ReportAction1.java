@@ -6,7 +6,6 @@ package com.warehouse.action;
 
 import com.genrep.guimodel.gui.comp.combo.Combo;
 import com.genrep.guimodel.gui.comp.date.DateComp;
-import com.genrep.guimodel.gui.comp.text.Text;
 import com.warehouse.core.Warehouse;
 import java.util.Date;
 import java.util.HashMap;
