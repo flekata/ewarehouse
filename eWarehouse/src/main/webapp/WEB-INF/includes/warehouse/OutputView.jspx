@@ -26,7 +26,7 @@
     </genrep:action>
     <genrep:action name="SearchOutput" class="com.warehouse.action.SearchOutput"
                    params="combo_tem12ss;combo_warehouse12ss21;inputText_size12ss;inputText_orderCode12ss;table_OutputView_Table;inputText_ind12ss">
-        <genrep:transit src="*" target="*"/>
+        <genrep:transit src="*" target="search"/>
     </genrep:action>
     <genrep:action name="AddNewItem" class="com.warehouse.action.AddNewItem"
                    params="inputText_newitem22;combo_Item22">
@@ -95,6 +95,7 @@
                            value="#{genrepmsgs['Search']}" />
         </genrep:buttonsWriter>
         <genrep:table id="OutputView_Table"
+                      renderOn="search"
                       tableClass="com.warehouse.core.Output"
                       columnFields="item.name;size;individual.name;orderCode;date;note;warehouse.name">
             <genrep:rowSelector id="SelectedIDInputView" action="RowSelector" />

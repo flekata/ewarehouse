@@ -12,7 +12,6 @@
                       insertNull="#{false}"
                       method="get"
                       labelField="name"
-                      submittable="#{false}"
                       refresh="#{true}"
                       catalogBean="#{clsfCatalog}"
                       params="com.warehouse.core.Warehouse"/>
@@ -26,6 +25,7 @@
     <genrep:panelGrid id="Inpuorganizationd" columns="4" >
         <genrep:combo id="name12"
                       field="organization"
+                      insertNull="#{false}"
                       method="get"
                       labelField="name"
                       catalogBean="#{clsfCatalog}"
@@ -49,6 +49,7 @@
                       field="item"
                       method="get"
                       labelField="name"
+                      insertNull="#{false}"
                       catalogBean="#{clsfCatalog}"
                       params="com.warehouse.core.Item"
                       refresh="#{true}"/>

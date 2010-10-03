@@ -26,9 +26,10 @@
 
         <genrep:outputLabel id="individualindividual22" value="#{genrepmsgs['individual']}" />
         <genrep:panelGrid id="Inpuorganizationd22" columns="4" >
-            <genrep:combo id="individual22"
+            <genrep:combo id="individual22k"
                           field="individual"
                           method="get"
+                          insertNull="#{false}"
                           labelField="name"
                           refresh="#{true}"
                           catalogBean="#{clsfCatalog}"
@@ -48,6 +49,7 @@
                           field="item"
                           method="get"
                           labelField="name"
+                          insertNull="#{false}"
                           catalogBean="#{clsfCatalog}"
                           params="com.warehouse.core.Item"
                           refresh="#{true}"/>
