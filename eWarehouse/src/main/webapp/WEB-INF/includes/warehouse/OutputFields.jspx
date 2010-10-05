@@ -26,7 +26,7 @@
 
         <genrep:outputLabel id="individualindividual22" value="#{genrepmsgs['individual']}" />
         <genrep:panelGrid id="Inpuorganizationd22" columns="4" >
-            <genrep:combo id="individual22k"
+            <genrep:combo id="individual22"
                           field="individual"
                           method="get"
                           insertNull="#{false}"
