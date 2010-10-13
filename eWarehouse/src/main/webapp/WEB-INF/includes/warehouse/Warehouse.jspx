@@ -34,6 +34,7 @@
                   tableClass="com.warehouse.beans.WarehouseTableColumns"
                   columnFields="itemName;size"
                   refresh="#{true}"
+                  renderButtons="#{false}"
                   params=".container"
                   method="getWarehausesFromSql">
         <genrep:columns/>

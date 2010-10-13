@@ -43,16 +43,11 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 		<groupHeader>
 			<band height="40">
 				<frame>
-					<reportElement mode="Opaque" x="0" y="0" width="700" height="20" backcolor="#CCCCCC"/>
+					<reportElement mode="Opaque" x="0" y="0" width="700" height="20" backcolor="#F0F0F0"/>
 				</frame>
 				<staticText>
 					<reportElement x="0" y="0" width="100" height="20"/>
-					<box leftPadding="0">
-						<topPen lineWidth="0.25" lineStyle="Solid"/>
-						<leftPen lineWidth="0.25" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
-						<rightPen lineWidth="0.25" lineStyle="Solid"/>
-					</box>
+					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 					</textElement>
@@ -172,9 +167,9 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 	<title>
 		<band height="20" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="700" height="20" backcolor="#000000"/>
+				<reportElement mode="Opaque" x="0" y="0" width="700" height="20" backcolor="#DEDDDD"/>
 				<staticText>
-					<reportElement x="300" y="0" width="100" height="20" forecolor="#FFFFFF"/>
+					<reportElement x="300" y="0" width="100" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="14" isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
@@ -202,7 +197,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{ORDERCODE}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ORDERCODE}==null ? new String("") : $F{ORDERCODE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="400" y="0" width="100" height="20"/>
@@ -214,9 +209,9 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{SIZE}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{SIZE}==null ? new Integer(0) : $F{SIZE}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="">
 				<reportElement x="500" y="0" width="100" height="20"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
@@ -226,7 +221,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{NOTE}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NOTE}==null ? new String("") : $F{NOTE}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="0" width="100" height="20"/>
@@ -251,7 +246,7 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{IND}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{IND}==null ? new String("") : $F{IND}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="300" y="0" width="100" height="20"/>
@@ -263,7 +258,8 @@ WHERE date(WAREHOUSE.OUTPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITM}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITM}==null ? new String("") : $F{ITM}
+]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

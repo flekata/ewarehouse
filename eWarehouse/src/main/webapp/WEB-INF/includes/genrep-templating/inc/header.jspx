@@ -1,5 +1,7 @@
 <div class="genrep_header_container"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:ice="http://www.icesoft.com/icefaces/component">
-
+    <div style="padding-top: 25px;margin-left: 95%">
+            <a href="#" onclick="window.location='j_spring_security_logout'" style="color: white">Одјави се</a>
+    </div>
 </div>
