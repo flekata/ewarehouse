@@ -16,7 +16,7 @@ import java.util.List;
 public class Input extends ADocument {
 
     private Warehouse warehouse;
-    private Date date;
+    private Date date = new Date();
     private Organization organization;
     private String type;
     private BigDecimal price;

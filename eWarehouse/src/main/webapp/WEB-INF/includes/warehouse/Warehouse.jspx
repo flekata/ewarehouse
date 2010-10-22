@@ -13,12 +13,12 @@
     </genrep:action>
     <genrep:panelGrid id="grmag" columns="3">
         <genrep:outputLabel id="lblname1" value="#{genrepmsgs['warehNameCh']}" />
-        <genrep:selectOneListbox id="name"
+        <genrep:combo id="name"
                       field="name"
-                      insertNull="#{false}"
                       method="get"
                       catalogBean="#{clsfCatalog}"
                       labelField="name"
+                      submittable="#{true}"
                       params="com.warehouse.core.Warehouse"
                       refresh="#{true}"/>
         <genrep:panelCollapsible id="newmag" title="Нов">

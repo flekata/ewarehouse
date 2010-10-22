@@ -15,7 +15,7 @@ import java.util.List;
 public class Output extends ADocument {
 
     private Warehouse warehouse;
-    private Date date;
+    private Date date= new Date();
     private Individual individual;
     private String orderCode;
     private String note;

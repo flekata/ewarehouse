@@ -18,14 +18,14 @@
 	<title>
 		<band height="99" splitType="Prevent">
 			<staticText>
-				<reportElement x="143" y="15" width="222" height="20"/>
+				<reportElement x="313" y="15" width="169" height="20"/>
 				<textElement>
 					<font size="15" isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="true"/>
 				</textElement>
 				<text><![CDATA[Дневен рекапитулар]]></text>
 			</staticText>
 			<subreport runToBottom="false">
-				<reportElement isPrintRepeatedValues="false" x="0" y="35" width="802" height="60"/>
+				<reportElement isPrintRepeatedValues="false" x="-19" y="35" width="840" height="60"/>
 				<subreportParameter name="DO">
 					<subreportParameterExpression><![CDATA[$P{DO}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -55,7 +55,7 @@
 	<summary>
 		<band height="66" splitType="Stretch">
 			<subreport runToBottom="true">
-				<reportElement isPrintRepeatedValues="false" x="0" y="0" width="802" height="60"/>
+				<reportElement isPrintRepeatedValues="false" x="-19" y="0" width="840" height="60"/>
 				<subreportParameter name="DO">
 					<subreportParameterExpression><![CDATA[$P{DO}]]></subreportParameterExpression>
 				</subreportParameter>

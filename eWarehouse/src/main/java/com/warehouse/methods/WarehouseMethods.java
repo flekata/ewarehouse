@@ -5,7 +5,7 @@
 package com.warehouse.methods;
 
 import com.genrep.container.service.application.AppFactory;
-import com.genrep.guimodel.gui.comp.listBox.SelectOneListbox;
+import com.genrep.guimodel.gui.comp.combo.Combo;
 import com.genrep.guimodel.service.gui.comp.AGUIContainer;
 import com.warehouse.beans.WarehouseTableColumns;
 import com.warehouse.core.Warehouse;
@@ -23,7 +23,7 @@ public class WarehouseMethods {
     public List getWarehausesFromSql(AGUIContainer container) {
         List<WarehouseTableColumns> list = new ArrayList<WarehouseTableColumns>();
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
-        SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
+        Combo lbox = (Combo) cont.getComponents().get("name");
         Warehouse wh = (Warehouse) lbox.getValueObject();
         if (wh != null) {
             String wrname = (String) wh.getName();
@@ -39,7 +39,7 @@ public class WarehouseMethods {
         List<WarehouseTableColumns> list = new ArrayList<WarehouseTableColumns>();
         AGUIContainer cont = (AGUIContainer) container.getContainers().get("Warehouse");
 //        Warehouse wh = (Warehouse) cont.getContainerBean();
-        SelectOneListbox lbox = (SelectOneListbox) cont.getComponents().get("name");
+        Combo lbox = (Combo) cont.getComponents().get("name");
         Warehouse wh = (Warehouse) lbox.getValueObject();
         if (wh != null) {
             String wrname = (String) wh.getName();

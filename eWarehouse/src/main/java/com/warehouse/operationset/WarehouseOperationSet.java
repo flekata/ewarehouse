@@ -37,7 +37,7 @@ public class WarehouseOperationSet extends AOperationSet {
                     + "select WAREHOUSE.INPU.SIZE as size1, WAREHOUSE.WARH.NAME as war, WAREHOUSE.ITM.NAME as itm "
                     + "from WAREHOUSE.INPU join WAREHOUSE.WARH on WAREHOUSE.WARH.UID=WAREHOUSE.INPU.WRHS join WAREHOUSE.ITM "
                     + "on WAREHOUSE.ITM.UID=WAREHOUSE.INPU.ITMM WHERE WAREHOUSE.WARH.NAME='" + wrhName + "' "
-                    + "union select -WAREHOUSE.OUTPU.SIZE as size1, WAREHOUSE.WARH.NAME as war, WAREHOUSE.ITM.NAME as itm "
+                    + "union all select -WAREHOUSE.OUTPU.SIZE as size1, WAREHOUSE.WARH.NAME as war, WAREHOUSE.ITM.NAME as itm "
                     + "from WAREHOUSE.OUTPU join WAREHOUSE.WARH on WAREHOUSE.WARH.UID=WAREHOUSE.OUTPU.WRHS join WAREHOUSE.ITM on WAREHOUSE.ITM.UID=WAREHOUSE.OUTPU.ITMM "
                     + "WHERE WAREHOUSE.WARH.NAME='" + wrhName + "' ) as neso group by neso.war, neso.itm");
 

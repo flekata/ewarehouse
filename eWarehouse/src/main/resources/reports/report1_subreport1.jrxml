@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1_subreport1" pageWidth="700" pageHeight="700" orientation="Landscape" columnWidth="700" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1_subreport1" pageWidth="840" pageHeight="700" orientation="Landscape" columnWidth="840" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -48,7 +48,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 		<groupHeader>
 			<band height="40">
 				<frame>
-					<reportElement mode="Opaque" x="0" y="0" width="700" height="20" backcolor="#F4F2F2"/>
+					<reportElement mode="Opaque" x="0" y="0" width="840" height="20" backcolor="#F4F2F2"/>
 				</frame>
 				<staticText>
 					<reportElement x="0" y="0" width="100" height="20"/>
@@ -58,7 +58,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Датум]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="600" y="20" width="100" height="20"/>
+					<reportElement x="740" y="20" width="100" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -70,7 +70,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Забелешка]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="500" y="20" width="100" height="20"/>
+					<reportElement x="684" y="20" width="56" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -82,7 +82,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Количина]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="100" y="20" width="100" height="20"/>
+					<reportElement x="54" y="20" width="200" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -94,7 +94,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Фирма]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="400" y="20" width="100" height="20"/>
+					<reportElement x="617" y="20" width="67" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -106,7 +106,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Цена]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="200" y="20" width="100" height="20"/>
+					<reportElement x="254" y="20" width="163" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -118,7 +118,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Набавил]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="300" y="20" width="100" height="20"/>
+					<reportElement x="417" y="20" width="200" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -130,7 +130,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Артикал]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="0" y="20" width="100" height="20"/>
+					<reportElement x="0" y="20" width="54" height="20"/>
 					<box leftPadding="0">
 						<topPen lineWidth="0.25" lineStyle="Solid"/>
 						<leftPen lineWidth="0.25" lineStyle="Solid"/>
@@ -154,7 +154,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 		<groupFooter>
 			<band height="20">
 				<staticText>
-					<reportElement mode="Transparent" x="0" y="0" width="100" height="20"/>
+					<reportElement mode="Transparent" x="0" y="0" width="54" height="20"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font fontName="Arial" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
@@ -162,7 +162,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<text><![CDATA[Вкупно]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="400" y="0" width="100" height="20"/>
+					<reportElement x="587" y="0" width="97" height="20"/>
 					<box rightPadding="3"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
@@ -170,7 +170,7 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{sumprice}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="500" y="0" width="100" height="20"/>
+					<reportElement x="684" y="0" width="56" height="20"/>
 					<box rightPadding="3"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
@@ -186,9 +186,9 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 	<title>
 		<band height="20" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="700" height="20" forecolor="#F0F0F0" backcolor="#E0DEDE"/>
+				<reportElement mode="Opaque" x="0" y="0" width="840" height="20" forecolor="#F0F0F0" backcolor="#E0DEDE"/>
 				<staticText>
-					<reportElement x="300" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
+					<reportElement x="367" y="0" width="100" height="20" forecolor="#000000" backcolor="#000000"/>
 					<box leftPadding="0"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle">
 						<font size="14" isBold="true" pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
@@ -205,21 +205,21 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
-			<textField>
-				<reportElement x="200" y="0" width="100" height="20"/>
+		<band height="40" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="254" y="0" width="163" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
 					<rightPen lineWidth="0.25" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{TYPE}==null ? new String("") : $F{TYPE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="400" y="0" width="100" height="20"/>
+				<reportElement x="617" y="0" width="67" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -228,10 +228,10 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
-				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PRICE}==null ? new Integer(0) : $F{PRICE}]]></textFieldExpression>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PRICE}==null ? new BigDecimal("0.0000") : $F{PRICE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="500" y="0" width="100" height="20"/>
+				<reportElement x="684" y="0" width="56" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
@@ -242,20 +242,20 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 				</textElement>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{SIZE}==null ? new Integer(0) : $F{SIZE}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="600" y="0" width="100" height="20"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="740" y="0" width="100" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
 					<rightPen lineWidth="0.25" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{NOTE}==null ? new String("") : $F{NOTE}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="0" width="100" height="20"/>
+				<reportElement x="0" y="0" width="54" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<leftPen lineWidth="0.25" lineStyle="Solid"/>
@@ -267,26 +267,26 @@ WHERE date(WAREHOUSE.INPU.DATE) between  $P{OD} and $P{DO}]]>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{WAR}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="100" y="0" width="100" height="20"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="54" y="0" width="200" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
 					<rightPen lineWidth="0.25" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ORG}==null ? new String("") : $F{ORG}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="300" y="0" width="100" height="20"/>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="417" y="0" width="200" height="40"/>
 				<box leftPadding="3">
 					<topPen lineWidth="0.25" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.25" lineStyle="Solid"/>
 					<rightPen lineWidth="0.25" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Top">
 					<font pdfFontName="arial.ttf" pdfEncoding="Cp1251" isPdfEmbedded="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ITM}==null ? new String("") : $F{ITM}]]></textFieldExpression>

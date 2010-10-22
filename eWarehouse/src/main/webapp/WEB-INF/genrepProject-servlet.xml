@@ -19,6 +19,7 @@
     <bean id="derbyNetworkServerLoader" class="com.genrep.system.load.DerbyNetworkServerLoader" scope="singleton" >
         <constructor-arg index="0" value="localhost" type="java.lang.String" />
         <constructor-arg index="1" value="1527" type="java.lang.String" />
+        <constructor-arg index="2" value="" type="java.lang.String" />
     </bean>
 
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
