@@ -1,0 +1,1 @@
+Warehouse functionalities in a web application

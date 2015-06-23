@@ -1,0 +1,1 @@
+Imas metoda balance, presmetuvas balance preku java?
